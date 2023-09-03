@@ -32,10 +32,24 @@ const getConfig = (target) => {
       rules: [
         {
           test: /\.s?css$/i,
-          exclude: [],
+          exclude: /\.module\.s?css$/i,
           use: [
             MiniCssExtractPlugin.loader,
             'css-loader',
+            'postcss-loader',
+            'sass-loader',
+          ],
+        }, // CSS Module ([filename].module.css)
+        {
+          test: /\.module\.s?css$/i,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+              },
+            },
             'postcss-loader',
             'sass-loader',
           ],
