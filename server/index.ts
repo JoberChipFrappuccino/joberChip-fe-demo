@@ -9,14 +9,10 @@ const app = express()
 
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack')
-  const webpackConfig = require('../webpack.client.config').map(
-    (config: any) => {
-      config.output.path = config.output.path
-        .replace('dist/dist/', 'dist/')
-        .replace('dist\\dist\\', 'dist\\')
-      return config
-    }
-  )
+  const webpackConfig = require('../webpack.client.config').map((config: any) => {
+    config.output.path = config.output.path.replace('dist/dist/', 'dist/').replace('dist\\dist\\', 'dist\\')
+    return config
+  })
   const webpackDevMiddleware = require('webpack-dev-middleware')
   const webpackHotMiddleware = require('webpack-hot-middleware')
   const compiler = webpack(webpackConfig)
@@ -27,7 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(
     webpackDevMiddleware(compiler, {
       writeToDisk: true,
-      publicPath: webpackConfig[0].output.publicPath,
+      publicPath: webpackConfig[0].output.publicPath
     })
   )
   app.use(webpackHotMiddleware(compiler))
@@ -38,7 +34,7 @@ app.use(compress())
 app.use(express.static('public'))
 app.use(express.static('dist'))
 
-app.use('/auth', authRouter)
+app.use('/api/auth', authRouter)
 
 app.use('/', (req, res) => {
   render(req.url, req, res)
