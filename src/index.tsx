@@ -1,6 +1,6 @@
-import { BrowserRouter } from 'react-router-dom'
-import { hydrateRoot } from 'react-dom/client'
 import App from '@/App'
+import { hydrateRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 
 import '@/tailwind.css'
 import { loadableReady } from '@loadable/component'

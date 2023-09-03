@@ -1,12 +1,12 @@
+import App from '@/App'
+import { POST_API_KEY, SEO } from '@/constants'
+import { SSRProvider } from '@/context/ssr'
+import { ChunkExtractor } from '@loadable/server'
 import type { Request, Response } from 'express'
 import path from 'path'
-import { ChunkExtractor } from '@loadable/server'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom/server'
 import { Helmet } from 'react-helmet'
-import { POST_API_KEY, SEO } from '@/constants'
-import App from '@/App'
-import { SSRProvider } from '@/context/ssr'
+import { StaticRouter } from 'react-router-dom/server'
 
 export default async function renderHome(
   url: string,

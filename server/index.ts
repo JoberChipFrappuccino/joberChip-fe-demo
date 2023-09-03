@@ -1,7 +1,6 @@
-import express from 'express'
 import compress from 'compression'
 import cors from 'cors'
-import path from 'path'
+import express from 'express'
 import render from '~/render/render'
 import authRouter from '~/routes/auth'
 

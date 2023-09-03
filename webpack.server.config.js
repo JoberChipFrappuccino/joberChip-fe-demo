@@ -1,5 +1,6 @@
 const path = require('path')
 const webpackNodeExternals = require('webpack-node-externals')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = (e, r) => {
   return {
@@ -18,6 +19,16 @@ module.exports = (e, r) => {
     module: {
       rules: [
         {
+          test: /\.s?css$/i,
+          exclude: [],
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            'postcss-loader',
+            'sass-loader',
+          ],
+        },
+        {
           test: /\.jsx?$|\.tsx?$/,
           use: 'babel-loader',
         },
@@ -26,6 +37,7 @@ module.exports = (e, r) => {
     resolve: {
       extensions: ['.js', '.ts', '.tsx', '.jsx'],
     },
+    plugins: [new MiniCssExtractPlugin()],
     externals: [webpackNodeExternals()],
   }
 }

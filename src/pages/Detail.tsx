@@ -1,8 +1,8 @@
+import SSRPost from '@/components/SSRPost'
+import { SEO } from '@/constants'
+import useServerSideProps from '@/hooks/serverSideProps'
 import { useState } from 'react'
 import { Helmet } from 'react-helmet'
-import SSRPost from '@/components/SSRPost'
-import useServerSideProps from '@/hooks/serverSideProps'
-import { SEO } from '@/constants'
 
 type PageSource = {
   title: {
@@ -19,7 +19,7 @@ export default function Detail() {
         <title>{pageSource['title']['/detail']}</title>
       </Helmet>
       <div className='flex'>
-        <h1>Detail Page</h1>
+        <h1 className='detail-title'>Detail Page</h1>
         <h1 className='text-sky-900'>Count : {count}</h1>
         <div>
           <button className='mr-4' onClick={() => setCount((prev) => ++prev)}>
