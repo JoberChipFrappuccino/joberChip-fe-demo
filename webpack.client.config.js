@@ -10,7 +10,9 @@ const getEntryPoint = (target) => {
   if (target === 'node') {
     return ['./src/index.tsx']
   }
-  return devMode ? [hotMiddlewareScript, './src/index.tsx'] : ['./src/index.tsx']
+  return devMode
+    ? [hotMiddlewareScript, './src/index.tsx']
+    : ['./src/index.tsx']
 }
 
 const getConfig = (target) => {
@@ -44,7 +46,11 @@ const getConfig = (target) => {
     },
     plugins:
       target === 'web'
-        ? [new webpack.HotModuleReplacementPlugin(), new LoadablePlugin(), new MiniCssExtractPlugin()]
+        ? [
+            new webpack.HotModuleReplacementPlugin(),
+            new LoadablePlugin(),
+            new MiniCssExtractPlugin(),
+          ]
         : [new LoadablePlugin(), new MiniCssExtractPlugin()],
   }
 }
