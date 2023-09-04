@@ -3,10 +3,12 @@
   transition: height 200ms ease;
 }
 .react-grid-item {
+  border-radius: 1rem;
   transition: all 200ms ease;
   transition-property: left, top;
 }
 .react-grid-item img {
+  border-radius: 1rem;
   pointer-events: none;
   user-select: none;
 }
