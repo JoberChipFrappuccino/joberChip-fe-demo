@@ -1,5 +1,6 @@
+import loadable from '@loadable/component'
 import GridLayout from 'react-grid-layout'
-import 'react-grid-layout/css/styles.css'
+// loadable(() => import('react-grid-layout/css/styles.css'))
 import type { BlockType, Section } from '@/models/space'
 import SwithBlock from './SwithBlock'
 

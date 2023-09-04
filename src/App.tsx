@@ -1,4 +1,5 @@
 import loadable from '@loadable/component'
+import './App.css'
 import { Route, Routes } from 'react-router-dom'
 const NotFound = loadable(() => import('./pages/NotFound'))
 const Layout = loadable(() => import('./components/Layouts/Layout'))
