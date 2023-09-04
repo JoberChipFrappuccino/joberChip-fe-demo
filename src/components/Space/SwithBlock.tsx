@@ -4,6 +4,7 @@ import LinkBlock from '@/components/Blocks/LinkBlock'
 import SpaceBlock from '@/components/Blocks/SpaceBlock'
 import ImageBlock from '@/components/Blocks/ImageBlock'
 import { EmbedBlock } from '@/components/Blocks/EmbedBlock'
+import VideoBlock from '../Blocks/VideoBlock'
 
 type Props = {
   type: BlockType
@@ -11,7 +12,7 @@ type Props = {
 }
 
 export default function SwithBlock({ type, block }: Props) {
-  let blockComponent = <></>
+  let blockComponent = <>지정된 블록이 없습니다!</>
   switch (type) {
     case 'text':
       blockComponent = <TextBlock block={block as BlockWith<'text'>} />
@@ -27,6 +28,9 @@ export default function SwithBlock({ type, block }: Props) {
       break
     case 'embed':
       blockComponent = <EmbedBlock block={block as BlockWith<'embed'>} />
+      break
+    case 'video':
+      blockComponent = <VideoBlock block={block as BlockWith<'video'>} />
   }
 
   return <>{blockComponent}</>

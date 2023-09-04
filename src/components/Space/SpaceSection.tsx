@@ -50,10 +50,10 @@ function getEditableBlockLayout(blocks: Section['blocks']): BlockItem[] {
       isResizable: true,
       MaxH: 2,
       MaxW: 2,
-      x: start_row,
-      y: start_col,
-      w: end_row - start_row + 1,
-      h: end_col - start_col + 1
+      x: start_col,
+      y: start_row,
+      w: end_col - start_col + 1,
+      h: end_row - start_row + 1
     }
   })
 }

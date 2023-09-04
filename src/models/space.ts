@@ -44,6 +44,10 @@ export type EmbedBlock = {
   src: string
   caption: string
 }
+export type VideoBlock = {
+  src: string
+  caption: string
+}
 
 // * example 이런 식으로 확장 해야 함
 export type EmbedYoutubeBlock = {} // * youtube
@@ -51,11 +55,6 @@ export type EmbedSpotifyBlock = {} // * spotify
 export type EmbedGithubBlock = {} // * github
 export type EmbedGoogleMapBlock = {} // * google map
 export type EmbedKakaomapBlock = {} // * kakaomap
-
-export type VideoBlock = {
-  url: string
-  caption: string
-}
 
 /**
  * @description conponents/Blocks/* 에 있는 컴포넌트들의 props 타입을 정의합니다.
