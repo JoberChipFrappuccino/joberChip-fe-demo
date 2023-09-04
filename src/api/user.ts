@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { User } from '@/models/user'
-import { authAPI } from './apiInstance'
+import { authAPI } from './api'
 
 type LoginResponse = {
   status: 'success' | 'failure'

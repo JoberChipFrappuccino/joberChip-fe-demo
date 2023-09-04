@@ -1,13 +1,13 @@
 {
   "test1@google.com": {
-    "user_id": "1",
+    "user_id": "user1",
     "email": "test1@google.com",
     "username": "foo",
     "profile_img": "http://localhost:7282/profile_1.png",
     "access_token": "token-example:test1@google.com"
   },
   "test2@google.com": {
-    "user_id": "2",
+    "user_id": "user2",
     "email": "test2@google.com",
     "username": "waldo",
     "profile_img": "http://localhost:7282/profile_2.png",

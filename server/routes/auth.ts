@@ -15,7 +15,6 @@ type MockProfile = {
   access_token: string
 }
 
-// ! 데모 라우터입니다. 실제 서비스에서는 사용하지 않습니다.
 authRouter.get('/', (req, res) => {
   if (!req.headers.authorization || !req.headers.authorization.includes('token-example')) {
     return res.status(400).json({

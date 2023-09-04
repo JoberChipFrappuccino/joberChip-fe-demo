@@ -1,5 +1,3 @@
-import axios from 'axios'
-import { authAPI } from '@/api/apiInstance'
 import { ACCESS_TOKEN } from '@/constants'
 import { User } from '@/models/user'
 import { create } from 'zustand'
@@ -16,7 +14,7 @@ type LoginResponse = {
 }
 
 interface UserState {
-  user: User | Partial<User>
+  user: User
   isFetching: boolean
   isSignedIn: boolean
   signIn: (user: LoginForm) => Promise<LoginResponse>
@@ -37,7 +35,7 @@ export const useUserStore = create<UserState>((set) => {
 
         localStorage.setItem(ACCESS_TOKEN, data.access_token)
       } else {
-        set((state) => ({ ...state, user: {}, isFetching: false, isSignedIn: false }))
+        set((state) => ({ ...state, isFetching: false, isSignedIn: false }))
         localStorage.removeItem(ACCESS_TOKEN)
       }
       return res
@@ -46,7 +44,7 @@ export const useUserStore = create<UserState>((set) => {
       set((state) => ({ ...state, isFetching: true, isSignedIn: false }))
       const user = await getUserInfoAPI()
       if (!user) {
-        set((state) => ({ ...state, user: {}, isFetching: false, isSignedIn: false }))
+        set((state) => ({ ...state, isFetching: false, isSignedIn: false }))
         localStorage.removeItem(ACCESS_TOKEN)
         return false
       }
@@ -55,7 +53,7 @@ export const useUserStore = create<UserState>((set) => {
     },
     signOut: () => {
       // todo : logout API있다면 호출합니다.
-      set((state) => ({ ...state, user: {}, isFetching: false, isSignedIn: false }))
+      set((state) => ({ ...state, isFetching: false, isSignedIn: false }))
       localStorage.removeItem(ACCESS_TOKEN)
     },
     auth: async () => {}
