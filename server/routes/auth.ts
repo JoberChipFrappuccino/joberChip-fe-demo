@@ -4,14 +4,14 @@ import path from 'path'
 
 const authRouter = express.Router()
 
-type UserMockData = {
+export type UserMockData = {
   [key: string]: MockProfile
 }
 
 type MockProfile = {
   user_id: string
   email: string
-  name: string
+  username: string
   profile_image: string
   access_token: string
 }
