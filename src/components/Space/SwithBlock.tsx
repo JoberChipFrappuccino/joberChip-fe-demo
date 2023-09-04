@@ -2,12 +2,14 @@ import type { BlockBase, BlockType, BlockWith } from '@/models/space'
 import TextBlock from '@/components/Blocks/TextBlock'
 import LinkBlock from '@/components/Blocks/LinkBlock'
 import SpaceBlock from '@/components/Blocks/SpaceBlock'
-import ImageBlock from '../Blocks/ImageBlock'
+import ImageBlock from '@/components/Blocks/ImageBlock'
+import { EmbedBlock } from '@/components/Blocks/EmbedBlock'
 
 type Props = {
   type: BlockType
   block: BlockBase
 }
+
 export default function SwithBlock({ type, block }: Props) {
   let blockComponent = <></>
   switch (type) {
@@ -22,6 +24,9 @@ export default function SwithBlock({ type, block }: Props) {
       break
     case 'space':
       blockComponent = <SpaceBlock block={block as BlockWith<'space'>} />
+      break
+    case 'embed':
+      blockComponent = <EmbedBlock block={block as BlockWith<'embed'>} />
   }
 
   return <>{blockComponent}</>

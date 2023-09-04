@@ -11,6 +11,7 @@ type PageSource = {
     [key: string]: string
   }
 }
+
 export default function Home() {
   const pageSource: PageSource = useServerSideProps(SEO)
   const { user } = useUserStore()
