@@ -16,10 +16,6 @@ if (process.env.NODE_ENV !== 'production') {
   const webpackDevMiddleware = require('webpack-dev-middleware')
   const webpackHotMiddleware = require('webpack-hot-middleware')
   const compiler = webpack(webpackConfig)
-
-  app.use(cors())
-  app.use(express.json())
-  app.use(express.urlencoded({ extended: true }))
   app.use(
     webpackDevMiddleware(compiler, {
       writeToDisk: true,
@@ -29,8 +25,10 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(webpackHotMiddleware(compiler))
 }
 
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use(compress())
-// app.use(express.static(path.resolve(__dirname)))
 app.use(express.static('public'))
 app.use(express.static('dist'))
 

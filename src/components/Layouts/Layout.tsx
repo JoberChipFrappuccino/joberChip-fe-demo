@@ -1,6 +1,28 @@
-import { Outlet, Link } from 'react-router-dom'
+import { useUserStore } from '@/store/user'
+import { useEffect, useState } from 'react'
+import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 
 export default function Layout() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const { isSignedIn } = useUserStore()
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    if (isSignedIn) {
+      if (location.pathname === '/signup' || location.pathname === '/signin') {
+        navigate('/')
+      }
+    }
+
+    if (!isSignedIn) {
+      if (location.pathname !== 'signup') {
+        navigate('/signin')
+      }
+    }
+    setIsLoading(false)
+  }, [location.pathname])
+
   return (
     <div>
       <div className="m-4">
@@ -11,7 +33,7 @@ export default function Layout() {
           Detail
         </Link>
       </div>
-      <Outlet />
+      {isLoading ? <div>Loading ...</div> : <Outlet />}
     </div>
   )
 }

@@ -34,10 +34,9 @@ authRouter.post('/', (req, res) => {
   return res.json(data[token])
 })
 
-// * auth/login?email=xxx
-authRouter.post('/login', (req, res) => {
+// * auth/signin?email=xxx
+authRouter.post('/signin', (req, res) => {
   const body = req.body as unknown as { email: string; password: string }
-
   const data: UserMockData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../mocks/user.json'), 'utf8'))
   if (!data[body.email]) {
     return res.status(400).json({

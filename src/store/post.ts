@@ -14,33 +14,30 @@ interface PostState {
 }
 
 // @ts-ignore ㅎ ㅏ 최선인가..
-const useStore = create<PostState>((set) => {
-  //   if (typeof window === 'undefined') {
-  //     return {}
-  //   }
+export const usePostStore = create<PostState>((set) => {
   const store = {
     posts: [
       {
         id: 1,
         title: 'title',
-        body: 'body',
+        body: 'body'
       },
       {
         id: 2,
         title: 'title',
-        body: 'body',
-      },
+        body: 'body'
+      }
     ],
     addPost: (post: Post) => {
       set((state) => ({ posts: [...state.posts, post] }))
     },
     removeAllPosts: () => {
       set({ posts: [] })
-    },
+    }
   }
 
   // @ts-ignore
   return devtools(store, {
-    enabled: process.env.NODE_ENV === 'development',
+    enabled: process.env.NODE_ENV === 'development'
   })
 })

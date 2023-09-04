@@ -3,8 +3,8 @@ import axios from 'axios'
 import { errorController } from './controller/error'
 
 const authAPI = axios.create({
-  baseURL: 'http://localhost:3000',
-  timeout: 1000
+  baseURL: 'http://localhost:7282',
+  timeout: 10000
 })
 
 authAPI.interceptors.request.use(
@@ -21,8 +21,8 @@ authAPI.interceptors.request.use(
 )
 
 authAPI.interceptors.response.use(
-  ({ data }) => data,
-  (error) => errorController(error)
+  (res) => res, // todo res.data 하니까 type에러가 남 으잉?
+  async (error) => await errorController(error)
 )
 
 export { authAPI }

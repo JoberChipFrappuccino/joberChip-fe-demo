@@ -1,5 +1,6 @@
 import loadable from '@loadable/component'
 import { Route, Routes } from 'react-router-dom'
+const NotFound = loadable(() => import('./pages/NotFound'))
 const Layout = loadable(() => import('./components/Layouts/Layout'))
 const Home = loadable(() => import('./pages/Home'))
 const Detail = loadable(() => import('./pages/Detail'))
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
       </Route>
+      <Route path="*" element={<NotFound />}></Route>
     </Routes>
   )
 }

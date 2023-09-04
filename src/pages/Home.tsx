@@ -10,37 +10,17 @@ type PageSource = {
   }
 }
 export default function Home() {
-  const [count, setCount] = useState(0)
   const pageSource: PageSource = useServerSideProps(SEO)
   return (
     <>
       <Helmet>
         <title>{pageSource['title']['/']}</title>
       </Helmet>
-      <div className='flex'>
-        <h1 className='title'>Home Page</h1>
-        <h1 className='text-red-500 px-2'>Count : {count}</h1>
-        <div>
-          <button
-            className='mr-12'
-            onClick={() => {
-              setCount((prev) => ++prev)
-            }}
-          >
-            Increment
-          </button>
-          <button
-            className='mr-12'
-            onClick={() => {
-              setCount((prev) => --prev)
-            }}
-          >
-            Decrement
-          </button>
-        </div>
+      <div className="flex">
+        <h1 className="title">Home Page</h1>
       </div>
       <section>
-        <h1 className='text-3xl'>Server Side Rendering!</h1>
+        <h1 className="text-3xl">Server Side Rendering!</h1>
         <SSRPost />
       </section>
     </>
