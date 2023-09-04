@@ -5,8 +5,7 @@ import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 export default function Layout() {
   const navigate = useNavigate()
   const location = useLocation()
-  const { isSignedIn, getUserInfo } = useUserStore()
-  const [isLoading, setIsLoading] = useState(true)
+  const { user, isSignedIn, isFetching, getUserInfo } = useUserStore()
 
   useEffect(() => {
     if (isSignedIn) {
@@ -22,7 +21,6 @@ export default function Layout() {
             navigate('/signin')
           }
         }
-        setIsLoading(false)
       })
     }
   }, [location.pathname])
@@ -37,7 +35,8 @@ export default function Layout() {
           Detail
         </Link>
       </div>
-      {isLoading ? <div>Loading ...</div> : <Outlet />}
+      {isFetching && <div> loading... </div>}
+      {isSignedIn && <Outlet />}
     </div>
   )
 }

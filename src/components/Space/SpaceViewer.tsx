@@ -9,7 +9,7 @@ export const SpaceViewer = ({ space }: Props) => {
     <div>
       <h1>Space 로드 됨</h1>
       {Object.entries(space).map(([key, value]) => {
-        return <SpaceSection key={key} section={value} />
+        return <SpaceSection key={key} title={key} section={value} />
       })}
     </div>
   )

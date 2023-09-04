@@ -18,8 +18,7 @@ export default function SignUp() {
   } = useForm<SignUpInputs>({ mode: 'onBlur' })
 
   const onSubmit: SubmitHandler<SignUpInputs> = (data) => {
-    alert('로그인을 시도합니다.')
-    console.log(data)
+    alert('회원가입을 시도합니다.' + data)
   }
   return (
     <div className={styles.container}>

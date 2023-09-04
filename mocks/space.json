@@ -14,7 +14,7 @@
           "end_row": 0,
           "end_col": 0,
           "type": "link",
-          "url": "https://www.naver.com",
+          "url": "http://www.naver.com",
           "text": "네이버로 이동하기"
         },
         {
@@ -24,7 +24,7 @@
           "end_row": 1,
           "end_col": 0,
           "type": "image",
-          "src": "https://localhost:7282/dance.gif",
+          "src": "http://localhost:7282/dance.gif",
           "alt": "춤추는 인간"
         },
         {
@@ -34,7 +34,7 @@
           "end_row": 1,
           "end_col": 1,
           "type": "image",
-          "src": "https://localhost:7282/dance.gif",
+          "src": "http://localhost:7282/dance.gif",
           "alt": "춤추는 인간2"
         },
         {
@@ -45,7 +45,7 @@
           "end_col": 1,
           "type": "space",
           "text": "하위 공유 페이지로 이동하기",
-          "url": "https://www.naver.com"
+          "url": "http://www.naver.com"
         },
         {
           "block_id": "block_5",
@@ -67,7 +67,7 @@
           "end_row": 0,
           "end_col": 0,
           "type": "link",
-          "url": "https://www.naver.com",
+          "url": "http://www.naver.com",
           "text": "네이버로 이동하기"
         },
         {
@@ -77,7 +77,7 @@
           "end_row": 1,
           "end_col": 0,
           "type": "image",
-          "src": "https://localhost:7282/dance.gif",
+          "src": "http://localhost:7282/dance.gif",
           "alt": "춤추는 인간"
         },
         {
@@ -87,7 +87,7 @@
           "end_row": 1,
           "end_col": 1,
           "type": "image",
-          "src": "https://localhost:7282/dance.gif",
+          "src": "http://localhost:7282/dance.gif",
           "alt": "춤추는 인간2"
         },
         {
@@ -126,7 +126,7 @@
           "end_row": 0,
           "end_col": 0,
           "type": "link",
-          "url": "https://www.naver.com",
+          "url": "http://www.naver.com",
           "text": "네이버로 이동하기"
         },
         {
@@ -136,7 +136,7 @@
           "end_row": 1,
           "end_col": 0,
           "type": "image",
-          "src": "https://localhost:7282/dance.gif",
+          "src": "http://localhost:7282/dance.gif",
           "alt": "춤추는 인간"
         },
         {
@@ -146,7 +146,7 @@
           "end_row": 1,
           "end_col": 1,
           "type": "image",
-          "src": "https://localhost:7282/dance.gif",
+          "src": "http://localhost:7282/dance.gif",
           "alt": "춤추는 인간2"
         },
         {
@@ -178,7 +178,7 @@
           "end_row": 0,
           "end_col": 0,
           "type": "link",
-          "url": "https://www.naver.com",
+          "url": "http://www.naver.com",
           "text": "네이버로 이동하기"
         },
         {
@@ -188,7 +188,7 @@
           "end_row": 1,
           "end_col": 0,
           "type": "image",
-          "src": "https://localhost:7282/dance.gif",
+          "src": "http://localhost:7282/dance.gif",
           "alt": "춤추는 인간"
         },
         {
@@ -198,7 +198,7 @@
           "end_row": 1,
           "end_col": 1,
           "type": "image",
-          "src": "https://localhost:7282/dance.gif",
+          "src": "http://localhost:7282/dance.gif",
           "alt": "춤추는 인간2"
         },
         {

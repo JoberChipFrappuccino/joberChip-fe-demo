@@ -14,6 +14,7 @@ export type Section = {
 export type BlockType = 'text' | 'image' | 'link' | 'space'
 
 export type BlockBase = {
+  block_id: string
   type: BlockType
   start_row: number
   start_col: number
@@ -37,14 +38,12 @@ export type SpaceBlock = {
   url: string
 }
 
-export type Block<T> = T extends BlockType
-  ? 'text'
-  : T extends TextBlock
-  ? 'image'
-  : T extends ImageBlock
-  ? 'link'
-  : T extends LinkBlock
-  ? 'space'
-  : T extends SpaceBlock
-  ? ''
+export type BlockWith<T> = T extends 'text'
+  ? TextBlock & BlockBase
+  : T extends 'image'
+  ? ImageBlock & BlockBase
+  : T extends 'link'
+  ? LinkBlock & BlockBase
+  : T extends 'space'
+  ? SpaceBlock & BlockBase
   : never
