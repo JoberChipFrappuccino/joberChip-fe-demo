@@ -24,6 +24,77 @@ npm run start
 
 ## Demo API
 
-### GET /auth
+### GET api/auth
 
-### GET /auth/login
+```ts
+type reqeust = {
+  header: {
+    Authenticaion: string
+  }
+}
+
+type resposne = {
+  user_id: string
+  email: string
+  name: string
+  profile_image: string
+  access_token: string
+}
+```
+
+### POST api/auth/signin
+
+```ts
+type request = {
+  body: {
+    email: string
+    password: string
+  }
+}
+
+type resposne = {
+  user_id: string
+  email: string
+  name: string
+  profile_image: string
+  access_token: string
+}
+```
+
+### GET api/space
+
+```ts
+type reqeust = {
+  query: {
+    id: string
+  }
+}
+type response = {
+  "section_id": {
+    layout: {
+      styles: {
+        [key: string]: string // 미정
+      }
+    }
+    blocks: {
+      block_id: string
+      type: BlockType
+      start_row: number
+      start_col: number
+      end_row: number
+      end_col: number
+    }[]
+  }
+}
+
+// response.blocks는 확장 가능
+export type BlockWith<T> = T extends 'text'
+  ? TextBlock & BlockBase
+  : T extends 'image'
+  ? ImageBlock & BlockBase
+  : T extends 'link'
+  ? LinkBlock & BlockBase
+  : T extends 'space'
+  ? SpaceBlock & BlockBase
+  : never
+```

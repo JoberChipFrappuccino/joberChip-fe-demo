@@ -1,6 +1,7 @@
 import express from 'express'
 import fs from 'fs'
 import path from 'path'
+
 const authRouter = express.Router()
 
 type UserMockData = {
