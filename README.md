@@ -1,5 +1,10 @@
 # Joberchip frappuccino demo app
 
+## Skills 
+
+Front Server: Node.js, Express, TypeScript
+Front Application : react, zustand, sass (css module), tailwind, Typescript
+build tool : webpack
 ## 실행 방법
 
 ### Developmenet
