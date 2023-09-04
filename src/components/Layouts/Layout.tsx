@@ -5,7 +5,7 @@ import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 export default function Layout() {
   const navigate = useNavigate()
   const location = useLocation()
-  const { isSignedIn } = useUserStore()
+  const { isSignedIn, getUserInfo } = useUserStore()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -16,11 +16,15 @@ export default function Layout() {
     }
 
     if (!isSignedIn) {
-      if (location.pathname !== 'signup') {
-        navigate('/signin')
-      }
+      getUserInfo().then((res) => {
+        if (!res) {
+          if (location.pathname !== '/signup') {
+            navigate('/signin')
+          }
+        }
+        setIsLoading(false)
+      })
     }
-    setIsLoading(false)
   }, [location.pathname])
 
   return (

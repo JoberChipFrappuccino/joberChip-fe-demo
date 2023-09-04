@@ -1,4 +1,3 @@
-import { useUser } from '@/hooks/user'
 import { useUserStore } from '@/store/user'
 import { useNavigate } from 'react-router-dom'
 
@@ -30,7 +29,6 @@ export default function SignIn() {
       alert(res.message)
       return navigate('/')
     }
-
     alert(res.message)
   }
 
