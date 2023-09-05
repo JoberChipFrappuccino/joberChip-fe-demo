@@ -11,7 +11,7 @@ export type Section = {
   blocks: BlockBase[]
 }
 
-export type BlockType = 'text' | 'image' | 'link' | 'space' | 'embed' | 'video'
+export type BlockType = 'text' | 'image' | 'link' | 'space' | 'embed' | 'video' | 'googleMap'
 
 export type BlockBase = {
   block_id: string
@@ -37,6 +37,10 @@ export type SpaceBlock = {
   text: string
   url: string
 }
+export type EmbedGoogleMapBlock = {
+  src: string
+  caption: string
+}
 
 // * 2023/09/04 추가 (embed, video 테스트)
 // https://www.youtube.com/watch?v=75kySTFaBQQ&t=6607s
@@ -53,7 +57,7 @@ export type VideoBlock = {
 export type EmbedYoutubeBlock = {} // * youtube
 export type EmbedSpotifyBlock = {} // * spotify
 export type EmbedGithubBlock = {} // * github
-export type EmbedGoogleMapBlock = {} // * google map
+// export type EmbedGoogleMapBlock = {} // * google map
 export type EmbedKakaomapBlock = {} // * kakaomap
 
 /**
@@ -72,4 +76,6 @@ export type BlockWith<T> = T extends 'text'
   ? EmbedBlock & BlockBase
   : T extends 'video'
   ? VideoBlock & BlockBase
+  : T extends 'googleMap'
+  ? EmbedGoogleMapBlock & BlockBase
   : never

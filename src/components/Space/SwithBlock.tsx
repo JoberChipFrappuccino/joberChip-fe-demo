@@ -5,6 +5,7 @@ import SpaceBlock from '@/components/Blocks/SpaceBlock'
 import ImageBlock from '@/components/Blocks/ImageBlock'
 import { EmbedBlock } from '@/components/Blocks/EmbedBlock'
 import VideoBlock from '../Blocks/VideoBlock'
+import GoogleMapBlock from '../Blocks/GoogleMapBlock'
 
 type Props = {
   type: BlockType
@@ -31,6 +32,9 @@ export default function SwithBlock({ type, block }: Props) {
       break
     case 'video':
       blockComponent = <VideoBlock block={block as BlockWith<'video'>} />
+      break
+    case 'googleMap':
+      blockComponent = <GoogleMapBlock block={block as BlockWith<'googleMap'>} />
   }
 
   return <>{blockComponent}</>

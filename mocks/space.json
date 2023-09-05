@@ -9,13 +9,7 @@
       "blocks": [
         {
           "block_id": "block_1_1",
-          "start_row": 0,
-          "start_col": 0,
-          "end_row": 0,
-          "end_col": 1,
-          "type": "link",
-          "url": "http://www.naver.com",
-          "text": "네이버로 이동하기"
+          "text": "네이버로 이동!"
         },
         {
           "block_id": "block_1_2",
@@ -45,7 +39,8 @@
           "end_col": 3,
           "type": "space",
           "text": "하위 공유 페이지로 이동하기",
-          "url": "http://www.naver.com"
+          "url": "http://www.naver.com",
+          "tags": [{}, {}, {}]
         },
         {
           "block_id": "block_1_5",
@@ -75,6 +70,15 @@
           "type": "video",
           "src": "http://localhost:7282/test.mp4",
           "caption": "쓸모없는 비디오"
+        },
+        {
+          "block_id": "block_1_8",
+          "start_row": 10,
+          "start_col": 0,
+          "end_row": 12,
+          "end_col": 2,
+          "type": "googleMap",
+          "src": "https://www.google.com/maps/embed/v1/place?key=AIzaSyCnJyiI_VgJmszJ9ceC-AKCVN7ebJe8ovo&q=Eiffel+Tower,Paris+France"
         }
       ]
     },
@@ -116,7 +120,7 @@
           "start_col": 0,
           "end_row": 3,
           "end_col": 1,
-          "type": "space",
+          "type": "space", // ?? 이거 뭐지
           "text": "하위 공유 페이지로 이동하기"
         },
         {
