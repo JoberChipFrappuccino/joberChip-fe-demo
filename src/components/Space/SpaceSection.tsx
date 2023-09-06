@@ -1,59 +1,59 @@
-import loadable from '@loadable/component'
-import GridLayout from 'react-grid-layout'
-// loadable(() => import('react-grid-layout/css/styles.css'))
-import type { BlockType, Section } from '@/models/space'
+import type { Section, Space } from '@/models/space'
 import SwithBlock from './SwithBlock'
+import { Responsive, WidthProvider, Layout } from 'react-grid-layout'
+import { useState } from 'react'
+const ResponsiveGridLayout = WidthProvider(Responsive)
 
 type Props = {
   title: string
   section: Section
+  space: Space
 }
+
 export const SpaceSection = ({ title, section }: Props) => {
   const layout = getEditableBlockLayout(section.blocks)
+  const [state, setState] = useState({
+    breakpoints: 'lg',
+    layouts: { lg: layout } // , md: layout, sm: layout, xs: layout, xxs: layout
+  })
 
   return (
-    <div className="prose">
+    <div className="prose mx-auto">
       <h1 className="text-3xl">{title}</h1>
-      <GridLayout layout={layout} maxRows={10} cols={4} compactType={'vertical'} rowHeight={100} width={500}>
+      <ResponsiveGridLayout
+        layouts={state.layouts}
+        breakpoints={{
+          lg: 1200
+        }}
+        cols={{ lg: 4 }}
+        rowHeight={100}
+        width={1000}
+        onLayoutChange={(layout, layouts) => {
+          setState({ layouts: { lg: layout }, breakpoints: 'lg' })
+        }}
+      >
         {section.blocks.map((block) => {
           return (
-            <div className="bg-slate-300" key={block.block_id}>
+            <div key={block.block_id}>
               <SwithBlock type={block.type} block={block}></SwithBlock>
             </div>
           )
         })}
-      </GridLayout>
+      </ResponsiveGridLayout>
     </div>
   )
 }
 
-type BlockItem = {
-  i: string
-  x: number
-  y: number
-  w: number
-  h: number
-  type?: BlockType
-  MaxH?: number
-  MaxW?: number
-  isDraggable?: boolean
-  isResizable?: boolean
-}
-
-function getEditableBlockLayout(blocks: Section['blocks']): BlockItem[] {
+function getEditableBlockLayout(blocks: Section['blocks']): Layout[] {
   return blocks.map((block) => {
-    const { block_id, start_col, start_row, end_col, end_row, ...rest } = block
+    const { block_id, ...rest } = block
     return {
-      rest,
-      i: block_id,
+      i: block_id, // * 라이브러리에서 필요한 값
       isDraggable: true,
       isResizable: true,
-      MaxH: 2,
-      MaxW: 2,
-      x: start_col,
-      y: start_row,
-      w: end_col - start_col + 1,
-      h: end_row - start_row + 1
+      // MaxH: 2,
+      // MaxW: 2,
+      ...rest
     }
   })
 }

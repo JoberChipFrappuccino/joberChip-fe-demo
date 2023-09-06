@@ -1,25 +1,40 @@
+import { Layout } from 'react-grid-layout'
+
 export type Space = {
   [key: string]: Section
 }
 
 export type Section = {
+  section_id: string
   layout: {
     styles: {
       [key: string]: string
     }
   }
+  type: 'section'
+  y: number
+  x: number
+  h: number
+  w: number
   blocks: BlockBase[]
 }
 
-export type BlockType = 'text' | 'image' | 'link' | 'space' | 'embed' | 'video' | 'googleMap'
+export type BlockType = 'text' | 'image' | 'link' | 'space' | 'embed' | 'video' | 'googleMap' | 'section'
 
 export type BlockBase = {
   block_id: string
   type: BlockType
-  start_row: number
-  start_col: number
-  end_row: number
-  end_col: number
+  y: number
+  x: number
+  h: number
+  w: number
+  i?: string
+  MaxH?: number
+  MaxW?: number
+  isDraggable?: boolean
+  isResizable?: boolean
+  isBounded?: boolean
+  static?: boolean
 }
 
 export type TextBlock = {
@@ -40,6 +55,16 @@ export type SpaceBlock = {
 export type EmbedGoogleMapBlock = {
   src: string
   caption: string
+}
+
+export type SectionBlock = {
+  section_id: string
+  layout: {
+    styles: {
+      [key: string]: string
+    }
+  }
+  text: string
 }
 
 // * 2023/09/04 추가 (embed, video 테스트)
@@ -78,4 +103,6 @@ export type BlockWith<T> = T extends 'text'
   ? VideoBlock & BlockBase
   : T extends 'googleMap'
   ? EmbedGoogleMapBlock & BlockBase
+  : T extends 'section'
+  ? SectionBlock & BlockBase
   : never

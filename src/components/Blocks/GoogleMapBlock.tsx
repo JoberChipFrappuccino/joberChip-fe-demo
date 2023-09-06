@@ -5,7 +5,7 @@ type Props = {
   block: BlockWith<'googleMap'>
 }
 
-export default function GoogleMapBlock({ block }: Props) {
+export function GoogleMapBlock({ block }: Props) {
   return (
     <div className={styles.container}>
       <iframe className={styles.viewer} referrerPolicy="no-referrer-when-downgrade" src={block.src} />

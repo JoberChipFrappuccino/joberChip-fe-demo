@@ -1,11 +1,12 @@
 import type { BlockBase, BlockType, BlockWith } from '@/models/space'
-import TextBlock from '@/components/Blocks/TextBlock'
-import LinkBlock from '@/components/Blocks/LinkBlock'
-import SpaceBlock from '@/components/Blocks/SpaceBlock'
-import ImageBlock from '@/components/Blocks/ImageBlock'
+import { TextBlock } from '@/components/Blocks/TextBlock'
+import { LinkBlock } from '@/components/Blocks/LinkBlock'
+import { SpaceBlock } from '@/components/Blocks/SpaceBlock'
+import { ImageBlock } from '@/components/Blocks/ImageBlock'
 import { EmbedBlock } from '@/components/Blocks/EmbedBlock'
-import VideoBlock from '../Blocks/VideoBlock'
-import GoogleMapBlock from '../Blocks/GoogleMapBlock'
+import { VideoBlock } from '@/components/Blocks/VideoBlock'
+import { GoogleMapBlock } from '@/components/Blocks/GoogleMapBlock'
+import { SectionBlock } from '@/components/Blocks/SectionBlock'
 
 type Props = {
   type: BlockType
@@ -35,6 +36,9 @@ export default function SwithBlock({ type, block }: Props) {
       break
     case 'googleMap':
       blockComponent = <GoogleMapBlock block={block as BlockWith<'googleMap'>} />
+      break
+    case 'section':
+      blockComponent = <SectionBlock block={block as BlockWith<'section'>} />
   }
 
   return <>{blockComponent}</>

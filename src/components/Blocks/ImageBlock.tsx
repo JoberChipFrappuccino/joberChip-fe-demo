@@ -3,7 +3,7 @@ import { BlockWith } from '@/models/space'
 type Props = {
   block: BlockWith<'image'>
 }
-export default function ImageBlock({ block }: Props) {
+export function ImageBlock({ block }: Props) {
   return (
     <>
       <img

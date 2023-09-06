@@ -4,7 +4,7 @@ import styles from './VideoBlock.module.scss'
 type Props = {
   block: BlockWith<'video'>
 }
-export default function VideoBlock({ block }: Props) {
+export function VideoBlock({ block }: Props) {
   return (
     <div className={styles.container}>
       <video className={styles.video} src={block.src} controls autoPlay></video>
