@@ -9,6 +9,12 @@
       "blocks": [
         {
           "block_id": "block_1_1",
+          "start_row": 0,
+          "start_col": 0,
+          "end_row": 0,
+          "end_col": 1,
+          "type": "link",
+          "url": "http://www.naver.com",
           "text": "네이버로 이동!"
         },
         {
@@ -39,8 +45,7 @@
           "end_col": 3,
           "type": "space",
           "text": "하위 공유 페이지로 이동하기",
-          "url": "http://www.naver.com",
-          "tags": [{}, {}, {}]
+          "url": "http://www.naver.com"
         },
         {
           "block_id": "block_1_5",
@@ -120,7 +125,7 @@
           "start_col": 0,
           "end_row": 3,
           "end_col": 1,
-          "type": "space", // ?? 이거 뭐지
+          "type": "space",
           "text": "하위 공유 페이지로 이동하기"
         },
         {
