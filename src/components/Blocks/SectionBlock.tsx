@@ -10,6 +10,7 @@ export function SectionBlock({ block }: Props) {
   useEffect(() => {
     const sectionEls = document.querySelectorAll(`[data-section=section]`)
     let target: HTMLDivElement | null = null
+
     sectionEls.forEach((el) => {
       if (target) {
         if (el.getAttribute('data-section') === 'section') {
@@ -21,7 +22,8 @@ export function SectionBlock({ block }: Props) {
         target = el as HTMLDivElement
       }
     })
-    document.querySelectorAll('.react-grid-layout > div').forEach((el) => {})
+    sectionEls[sectionEls.length - 1]
+    // document.querySelectorAll('.react-grid-layout > div').forEach((el) => {})
   }, [])
 
   return (

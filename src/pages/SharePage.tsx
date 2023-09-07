@@ -14,13 +14,15 @@ type PageSource = {
 
 export default function SharePage() {
   const pageSource: PageSource = useServerSideProps(SEO)
-  const { user } = useUserStore()
+  const { user, isSignedIn } = useUserStore()
   const { space, loadSpace, isLoaded } = useSpaceStore()
 
   useEffect(() => {
     if (!user.user_id) return
-    loadSpace(user.user_id)
-  }, [])
+    if (!isLoaded) {
+      loadSpace(user.user_id)
+    }
+  }, [isLoaded, isSignedIn])
 
   return (
     <>
