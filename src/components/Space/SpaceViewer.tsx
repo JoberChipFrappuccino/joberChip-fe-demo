@@ -3,7 +3,6 @@ import type { BlockType } from '@/models/space'
 import SwithBlock from './SwithBlock'
 import { Responsive, WidthProvider } from 'react-grid-layout'
 import { useCallback, useState } from 'react'
-import ReactGridLayout from 'react-grid-layout'
 
 const ResponsiveGridLayout = WidthProvider(Responsive)
 
@@ -12,18 +11,18 @@ type Props = {
 }
 export const SpaceViewer = ({ space }: Props) => {
   const layout = getEditableBlockLayout(space.blocks)
-  const [rowHeight, setRowHeight] = useState(170)
+  const [rowHeight, setRowHeight] = useState(100)
   const [state, setState] = useState({
     breakpoints: 'lg',
     layouts: { lg: layout } // , md: layout, sm: layout, xs: layout, xxs: layout
   })
 
   return (
-    <div>
+    <>
       <h1>Space 로드 됨</h1>
       <h1 className="text-3xl">{space.title}</h1>
       <p className="text-xl text-slate-500">{space.description}</p>
-      <section className="max-w-[800px] mx-auto">
+      <div className="max-w-[1000px] mx-auto">
         <ResponsiveGridLayout
           layouts={state.layouts}
           breakpoints={{
@@ -33,7 +32,7 @@ export const SpaceViewer = ({ space }: Props) => {
           rowHeight={rowHeight}
           width={1000}
           onWidthChange={(width, margin, cols) => {
-            setRowHeight((width * 1) / cols)
+            setRowHeight((width * 0.7) / cols)
           }}
         >
           {space.blocks.map((block) => {
@@ -44,8 +43,8 @@ export const SpaceViewer = ({ space }: Props) => {
             )
           })}
         </ResponsiveGridLayout>
-      </section>
-    </div>
+      </div>
+    </>
   )
 }
 

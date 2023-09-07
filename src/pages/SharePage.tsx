@@ -1,10 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import useServerSideProps from '@/hooks/serverSideProps'
 import { SEO } from '@/constants'
 import { useUserStore } from '@/store/user'
 import { useSpaceStore } from '@/store/space'
 import { SpaceViewer } from '@/components/Space/SpaceViewer'
+import { ActionBar } from '@/components/ActionBar'
+import { DrawTest } from '@/components/DrawTest'
+import { Button } from 'antd'
 
 type PageSource = {
   title: {
@@ -16,6 +19,17 @@ export default function SharePage() {
   const pageSource: PageSource = useServerSideProps(SEO)
   const { user, isSignedIn } = useUserStore()
   const { space, loadSpace, isLoaded } = useSpaceStore()
+
+  // * test
+  const [open, setOpen] = useState(false)
+
+  const showDrawer = () => {
+    setOpen(true)
+  }
+
+  const onClose = () => {
+    setOpen(false)
+  }
 
   useEffect(() => {
     if (!user.user_id) return
@@ -30,7 +44,13 @@ export default function SharePage() {
       <div className="flex">
         <h1 className="title">Home Page</h1>
       </div>
-      <section>{isLoaded && isSignedIn && <SpaceViewer space={space} />}</section>
+      <Button onClick={showDrawer}></Button>
+      <section>{isLoaded && isSignedIn && <ActionBar />}</section>
+
+      <div className="relative">
+        <section>{isLoaded && isSignedIn && <SpaceViewer space={space} />}</section>
+        <DrawTest open={open} onClose={onClose} />
+      </div>
     </>
   )
 }
