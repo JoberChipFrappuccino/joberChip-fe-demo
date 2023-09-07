@@ -8,7 +8,8 @@ type Props = {
 export default function TextBlock({ block, mode }: Props) {
   return (
     <div className={styles.container}>
-      <p className={mode === 'view' ? styles.view : styles.edit}>{block.text}</p>
+      <div className={mode === 'edit' ? 'cover' : ''}></div>
+      <p className={mode}>{block.text}</p>
     </div>
   )
 }

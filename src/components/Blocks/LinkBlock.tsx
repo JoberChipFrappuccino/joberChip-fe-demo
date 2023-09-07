@@ -8,7 +8,8 @@ type Props = {
 export default function LinkBlock({ block, mode }: Props) {
   return (
     <div className={styles.container}>
-      <div className={mode === 'view' ? styles.view : styles.edit}>
+      <div className={mode === 'edit' ? 'cover' : ''} />
+      <div className={mode}>
         <a href={block.url}>{block.text}</a>
       </div>
     </div>

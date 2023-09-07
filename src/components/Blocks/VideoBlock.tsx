@@ -8,7 +8,8 @@ type Props = {
 export default function VideoBlock({ block, mode }: Props) {
   return (
     <div className={styles.container}>
-      <video className={mode === 'view' ? styles.view : styles.edit} src={block.src} controls autoPlay></video>
+      <div className={mode === 'edit' ? 'cover' : ''} />
+      <video className={mode} src={block.src} controls autoPlay></video>
       <div className={styles.loading}>Loading...</div>
     </div>
   )

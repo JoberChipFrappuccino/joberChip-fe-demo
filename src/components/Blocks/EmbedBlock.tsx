@@ -7,12 +7,8 @@ type Props = {
 export function EmbedBlock({ block, mode }: Props) {
   return (
     <div className={styles.container}>
-      <iframe
-        className={mode === 'view' ? styles.view : styles.edit}
-        src={block.src}
-        allowFullScreen
-        ng-show="showvideo"
-      />
+      <div className={mode === 'edit' ? 'cover' : ''} />
+      <iframe className={mode} src={block.src} allowFullScreen ng-show="showvideo" />
       <p className={styles.loading}>Loading...</p>
     </div>
   )

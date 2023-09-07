@@ -4,6 +4,7 @@ import SwithBlock from './SwithBlock'
 import { Responsive, WidthProvider } from 'react-grid-layout'
 import { useEffect, useState } from 'react'
 import Layout from '../Layouts/Layout'
+import { useSpaceModeStore } from '@/store/spaceMode'
 
 const ResponsiveGridLayout = WidthProvider(Responsive)
 
@@ -12,7 +13,7 @@ type Props = {
 }
 export const SpaceViewer = ({ space }: Props) => {
   const [rowHeight, setRowHeight] = useState(100)
-  const [mode, setMode] = useState<SpaceMode>('view')
+  const { mode } = useSpaceModeStore()
   const [blocks, setBlocks] = useState(space.blocks)
   const [state, setState] = useState({
     breakpoints: 'lg',
@@ -28,10 +29,6 @@ export const SpaceViewer = ({ space }: Props) => {
     <>
       <h1 className="text-3xl">{space.title}</h1>
       <p className="text-xl text-slate-500">{space.description}</p>
-      <button onClick={() => setMode(mode === 'view' ? 'edit' : 'view')}>
-        {mode === 'view' ? '수정 하기' : '공유 화면 보기'}
-      </button>
-      <span className="text-rose-500">{'<== 이거 누르면 수정 또는 공유 화면 보기 토글 됩니당'}</span>
       <div className="max-w-[750px] mx-auto">
         <ResponsiveGridLayout
           layouts={state.layouts}
@@ -46,14 +43,11 @@ export const SpaceViewer = ({ space }: Props) => {
             setRowHeight((width * 0.7) / cols)
           }}
           onResizeStart={(layout, oldItem, newItem, placeholder, e, element) => {
-            console.log(element.classList.add('react-gird-resizable-keep'))
+            element.classList.add('react-gird-resizable-keep')
           }}
           onResizeStop={(layout, oldItem, newItem, placeholder, e, element) => {
             element.classList.remove('react-gird-resizable-keep')
           }}
-          // onLayoutChange={(layout, layouts) => {
-          //   console.log(layout, layouts)
-          // }}
         >
           {blocks.map((block) => {
             return (
@@ -91,7 +85,7 @@ function getBlockLayout(blocks: Space['blocks'], mode: SpaceMode): BlockItem[] {
       isResizable: mode === 'view' ? false : true,
       static: mode === 'view' ? true : false,
       minW: 1,
-      maxW: 2,
+      maxW: 4,
       minH: 1,
       maxH: 2,
       x: start_col,
