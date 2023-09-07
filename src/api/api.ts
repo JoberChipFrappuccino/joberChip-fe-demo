@@ -3,7 +3,8 @@ import axios from 'axios'
 import { errorController } from './controller/error'
 
 const authAPI = axios.create({
-  baseURL: 'http://localhost:7282',
+  baseURL:
+    process.env.NODE_ENV === 'production' ? 'http://ec2-34-228-10-85.compute-1.amazonaws.com' : 'http://localhost:5173',
   timeout: 10000
 })
 

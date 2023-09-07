@@ -5,7 +5,7 @@ import render from '~/render/render'
 import authRouter from '~/routes/auth'
 import spaceRouter from './routes/space'
 
-const PORT = process.env.PORT || 7282
+const PORT = 5173
 const app = express()
 
 if (process.env.NODE_ENV !== 'production') {

@@ -24,8 +24,9 @@ authRouter.get('/', (req, res) => {
   }
 
   const token = req.headers.authorization.split('token-example:')[1]
-
-  const data: UserMockData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../mocks/user.json'), 'utf8'))
+  const data: UserMockData = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, `../mocks/${process.env.NODE_ENV}/user.json`), 'utf8')
+  )
 
   if (!data[token]) {
     return res.status(400).json({ message: 'Invalid authorization header' })
@@ -37,7 +38,9 @@ authRouter.get('/', (req, res) => {
 // * auth/signin?email=xxx
 authRouter.post('/signin', (req, res) => {
   const body = req.body as unknown as { email: string; password: string }
-  const data: UserMockData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../mocks/user.json'), 'utf8'))
+  const data: UserMockData = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, `../mocks/${process.env.NODE_ENV}/user.json`), 'utf8')
+  )
   if (!data[body.email]) {
     return res.status(400).json({
       message: '존재하지 않는 이메일입니다.\n 아이디 또는 패스워드를 확인해주세요.'

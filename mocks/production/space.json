@@ -26,7 +26,7 @@
         "end_row": 1,
         "end_col": 1,
         "type": "image",
-        "src": "http://localhost:7282/dance.gif",
+        "src": "http://ec2-34-228-10-85.compute-1.amazonaws.com/dance.gif",
         "alt": "춤추는 인간"
       },
       {
@@ -36,7 +36,7 @@
         "end_row": 1,
         "end_col": 3,
         "type": "image",
-        "src": "http://localhost:7282/dance.gif",
+        "src": "http://ec2-34-228-10-85.compute-1.amazonaws.com/dance.gif",
         "alt": "춤추는 인간2"
       },
       {
@@ -75,7 +75,7 @@
         "end_row": 9,
         "end_col": 4,
         "type": "video",
-        "src": "http://localhost:7282/test.mp4",
+        "src": "http://ec2-34-228-10-85.compute-1.amazonaws.com/test.mp4",
         "caption": "쓸모없는 비디오"
       },
       {
@@ -114,7 +114,7 @@
           "end_row": 1,
           "end_col": 0,
           "type": "image",
-          "src": "http://localhost:7282/dance.gif",
+          "src": "http://ec2-34-228-10-85.compute-1.amazonaws.com/dance.gif",
           "alt": "춤추는 인간"
         },
         {
@@ -124,7 +124,7 @@
           "end_row": 1,
           "end_col": 1,
           "type": "image",
-          "src": "http://localhost:7282/dance.gif",
+          "src": "http://ec2-34-228-10-85.compute-1.amazonaws.com/dance.gif",
           "alt": "춤추는 인간2"
         },
         {
@@ -166,7 +166,7 @@
           "end_row": 1,
           "end_col": 0,
           "type": "image",
-          "src": "http://localhost:7282/dance.gif",
+          "src": "http://ec2-34-228-10-85.compute-1.amazonaws.com/dance.gif",
           "alt": "춤추는 인간"
         },
         {
@@ -176,7 +176,7 @@
           "end_row": 1,
           "end_col": 1,
           "type": "image",
-          "src": "http://localhost:7282/dance.gif",
+          "src": "http://ec2-34-228-10-85.compute-1.amazonaws.com/dance.gif",
           "alt": "춤추는 인간2"
         },
         {

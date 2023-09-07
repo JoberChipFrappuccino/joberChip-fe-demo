@@ -47,24 +47,19 @@ export default function SharePage() {
       <Button onClick={showDrawer}></Button>
       <section>{isLoaded && isSignedIn && <ActionBar />}</section>
       <div className="flex w-full h-full">
-        <div className="border-4 border-black">
+        {/* <div className="border-4 border-black">
           <div>
             <h1 className="text-3xl">NAVIGATION</h1>
           </div>
           <ul>
             <li>스페이스1</li>
-
             <li>스페이스1</li>
-
             <li>스페이스1</li>
-
             <li>스페이스1</li>
-
             <li>스페이스1</li>
-
             <li>스페이스1</li>
           </ul>
-        </div>
+        </div> */}
         <div className="relative flex-1 w-full">
           <section>{isLoaded && isSignedIn && <SpaceViewer space={space} />}</section>
         </div>

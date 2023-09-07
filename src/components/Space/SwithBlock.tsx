@@ -4,8 +4,8 @@ import LinkBlock from '@/components/Blocks/LinkBlock'
 import SpaceBlock from '@/components/Blocks/SpaceBlock'
 import ImageBlock from '@/components/Blocks/ImageBlock'
 import { EmbedBlock } from '@/components/Blocks/EmbedBlock'
-import VideoBlock from '../Blocks/VideoBlock'
-import GoogleMapBlock from '../Blocks/GoogleMapBlock'
+import VideoBlock from '@/components/Blocks/VideoBlock'
+import GoogleMapBlock from '@/components/Blocks/GoogleMapBlock'
 
 type Props = {
   type: BlockType

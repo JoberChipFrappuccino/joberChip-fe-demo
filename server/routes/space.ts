@@ -14,7 +14,9 @@ spaceRouter.get('/', (req, res) => {
       message: 'Invalid user id'
     })
   }
-  const data: SpaceMockData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../mocks/space.json'), 'utf8'))
+  const data: SpaceMockData = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, `../mocks/${process.env.NODE_ENV}/space.json`), 'utf8')
+  )
   if (!data[userId]) {
     return res.status(400).json({ message: 'Invalid user id' })
   }

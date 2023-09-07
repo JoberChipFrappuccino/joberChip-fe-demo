@@ -4,12 +4,10 @@ import { SSRProvider } from '@/context/ssr'
 import { ChunkExtractor } from '@loadable/server'
 import type { Request, Response } from 'express'
 import path from 'path'
-import fs from 'fs'
 import { renderToString } from 'react-dom/server'
 import { Helmet } from 'react-helmet'
 import { StaticRouter } from 'react-router-dom/server'
-import { UserMockData } from '~/routes/auth'
-
+1
 export default async function renderHome(url: string, req: Request, res: Response) {
   let serverSideData: {
     [key: string]: unknown
@@ -32,6 +30,7 @@ export default async function renderHome(url: string, req: Request, res: Respons
       '/detail': 'jober chip | 누군가의 디테일 페이지'
     }
   })
+
   const webStats = path.resolve(__dirname, './web/loadable-stats.json')
   const nodeStats = path.resolve(__dirname, './node/loadable-stats.json')
 
