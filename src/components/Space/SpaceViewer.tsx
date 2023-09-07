@@ -19,7 +19,6 @@ export const SpaceViewer = ({ space }: Props) => {
 
   return (
     <>
-      <h1>Space 로드 됨</h1>
       <h1 className="text-3xl">{space.title}</h1>
       <p className="text-xl text-slate-500">{space.description}</p>
       <div className="max-w-[1000px] mx-auto">

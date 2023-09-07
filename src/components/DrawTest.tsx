@@ -6,5 +6,5 @@ type Props = {
   onClose?: () => void
 }
 export function DrawTest({ children, open, onClose }: Props) {
-  return open && <div className="absolute top-0 right-10 w-[12rem] border-4 h-full">편집 창</div>
+  return open && <div className=" w-[12rem] border-4 h-screen border-black">편집 창</div>
 }
