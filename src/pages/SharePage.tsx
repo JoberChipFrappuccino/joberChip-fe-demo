@@ -5,7 +5,7 @@ import { SEO } from '@/constants'
 import { useUserStore } from '@/store/user'
 import { useSpaceStore } from '@/store/space'
 import { SpaceViewer } from '@/components/Space/SpaceViewer'
-import { ActionBar } from '@/components/ActionBar'
+import { Drawer } from '@/components/Drawer'
 import { DrawTest } from '@/components/DrawTest'
 import { Button } from 'antd'
 
@@ -45,18 +45,13 @@ export default function SharePage() {
         <h1 className="title">Home Page</h1>
       </div>
       <Button onClick={showDrawer}></Button>
-      <section>{isLoaded && isSignedIn && <ActionBar />}</section>
+      <section>{isLoaded && isSignedIn && <Drawer />}</section>
       <div className="flex w-full h-full">
         {/* <div className="border-4 border-black">
           <div>
             <h1 className="text-3xl">NAVIGATION</h1>
           </div>
           <ul>
-            <li>스페이스1</li>
-            <li>스페이스1</li>
-            <li>스페이스1</li>
-            <li>스페이스1</li>
-            <li>스페이스1</li>
             <li>스페이스1</li>
           </ul>
         </div> */}

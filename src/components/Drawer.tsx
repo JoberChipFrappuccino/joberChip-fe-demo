@@ -1,7 +1,7 @@
-import { Drawer, Button } from 'antd'
+import { Drawer as AntdDrawer, Button } from 'antd'
 import { useState } from 'react'
 
-export function ActionBar() {
+export function Drawer() {
   const [open, setOpen] = useState(false)
 
   const showDrawer = () => {
@@ -17,11 +17,11 @@ export function ActionBar() {
       <Button type="primary" onClick={showDrawer}>
         Open
       </Button>
-      <Drawer title="Basic Drawer" placement="right" onClose={onClose} open={open}>
+      <AntdDrawer title="Basic AntdDrawer" placement="right" onClose={onClose} open={open}>
         <p>Some contents...</p>
         <p>Some contents...</p>
         <p>Some contents...</p>
-      </Drawer>
+      </AntdDrawer>
     </>
   )
 }

@@ -10,31 +10,32 @@ import GoogleMapBlock from '@/components/Blocks/GoogleMapBlock'
 type Props = {
   type: BlockType
   block: BlockBase
+  mode: SpaceMode
 }
 
-export default function SwithBlock({ type, block }: Props) {
+export default function SwithBlock({ type, block, mode }: Props) {
   let blockComponent = <>지정된 블록이 없습니다!</>
   switch (type) {
     case 'text':
-      blockComponent = <TextBlock block={block as BlockWith<'text'>} />
+      blockComponent = <TextBlock mode={mode} block={block as BlockWith<'text'>} />
       break
     case 'image':
-      blockComponent = <ImageBlock block={block as BlockWith<'image'>} />
+      blockComponent = <ImageBlock mode={mode} block={block as BlockWith<'image'>} />
       break
     case 'link':
-      blockComponent = <LinkBlock block={block as BlockWith<'link'>} />
+      blockComponent = <LinkBlock mode={mode} block={block as BlockWith<'link'>} />
       break
     case 'space':
-      blockComponent = <SpaceBlock block={block as BlockWith<'space'>} />
+      blockComponent = <SpaceBlock mode={mode} block={block as BlockWith<'space'>} />
       break
     case 'embed':
-      blockComponent = <EmbedBlock block={block as BlockWith<'embed'>} />
+      blockComponent = <EmbedBlock mode={mode} block={block as BlockWith<'embed'>} />
       break
     case 'video':
-      blockComponent = <VideoBlock block={block as BlockWith<'video'>} />
+      blockComponent = <VideoBlock mode={mode} block={block as BlockWith<'video'>} />
       break
     case 'googleMap':
-      blockComponent = <GoogleMapBlock block={block as BlockWith<'googleMap'>} />
+      blockComponent = <GoogleMapBlock mode={mode} block={block as BlockWith<'googleMap'>} />
   }
 
   return <>{blockComponent}</>
