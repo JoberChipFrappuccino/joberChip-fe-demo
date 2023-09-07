@@ -1,21 +1,41 @@
 import type { Space } from '@/models/space'
-import GridLayout from 'react-grid-layout'
 import type { BlockType } from '@/models/space'
 import SwithBlock from './SwithBlock'
+import { Responsive, WidthProvider } from 'react-grid-layout'
+import { useCallback, useState } from 'react'
+import ReactGridLayout from 'react-grid-layout'
+
+const ResponsiveGridLayout = WidthProvider(Responsive)
 
 type Props = {
   space: Space
 }
 export const SpaceViewer = ({ space }: Props) => {
   const layout = getEditableBlockLayout(space.blocks)
+  const [rowHeight, setRowHeight] = useState(170)
+  const [state, setState] = useState({
+    breakpoints: 'lg',
+    layouts: { lg: layout } // , md: layout, sm: layout, xs: layout, xxs: layout
+  })
 
   return (
     <div>
       <h1>Space 로드 됨</h1>
       <h1 className="text-3xl">{space.title}</h1>
       <p className="text-xl text-slate-500">{space.description}</p>
-      <section>
-        <GridLayout layout={layout} maxRows={10} cols={4} compactType={'vertical'} rowHeight={100} width={500}>
+      <section className="max-w-[800px] mx-auto">
+        <ResponsiveGridLayout
+          layouts={state.layouts}
+          breakpoints={{
+            lg: 1200
+          }}
+          cols={{ lg: 4 }}
+          rowHeight={rowHeight}
+          width={1000}
+          onWidthChange={(width, margin, cols) => {
+            setRowHeight((width * 1) / cols)
+          }}
+        >
           {space.blocks.map((block) => {
             return (
               <div className="bg-slate-300" key={block.block_id}>
@@ -23,7 +43,7 @@ export const SpaceViewer = ({ space }: Props) => {
               </div>
             )
           })}
-        </GridLayout>
+        </ResponsiveGridLayout>
       </section>
     </div>
   )
