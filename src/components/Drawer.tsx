@@ -14,8 +14,8 @@ export function Drawer() {
 
   return (
     <>
-      <Button type="primary" onClick={showDrawer}>
-        Open
+      <Button className="prose" type="primary" onClick={showDrawer}>
+        Open Drawer
       </Button>
       <AntdDrawer title="Basic AntdDrawer" placement="right" onClose={onClose} open={open}>
         <p>Some contents...</p>

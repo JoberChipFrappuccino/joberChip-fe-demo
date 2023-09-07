@@ -9,6 +9,7 @@ import { Drawer } from '@/components/Drawer'
 import { DrawTest } from '@/components/DrawTest'
 import { Button } from 'antd'
 import { useSpaceModeStore } from '@/store/spaceMode'
+import SpaceActionBar from '@/components/Space/SpaceActionBar'
 
 type PageSource = {
   title: {
@@ -23,17 +24,6 @@ export default function SharePage() {
   // * 스페이스 모드 상태 관리
   const { mode, setSpaceMode } = useSpaceModeStore()
 
-  // * 테스트 코드
-  const [open, setOpen] = useState(false)
-  // * 테스트 코드
-  const showDrawer = () => {
-    setOpen(true)
-  }
-  // * 테스트 코드
-  const onClose = () => {
-    setOpen(false)
-  }
-
   useEffect(() => {
     if (!user.user_id) return
     loadSpace(user.user_id)
@@ -47,20 +37,23 @@ export default function SharePage() {
       <div className="flex">
         <h1 className="title">Home Page</h1>
       </div>
-      <Button className="prose" onClick={showDrawer}>
-        Drawer 테스트
-      </Button>
       <Button className="prose" onClick={() => setSpaceMode(mode === 'view' ? 'edit' : 'view')}>
         {mode === 'view' ? '수정 하기' : '공유 화면 보기'}
       </Button>
-      <section>{isLoaded && isSignedIn && <Drawer />}</section>
+      <aside>{isLoaded && isSignedIn && <Drawer />}</aside>
+      <p>위 버튼들 눌러서 테스트해주세요.</p>
+      <p>
+        768px 이하에서는 resize 버튼 모두 활성화 (모바일이라고 가정, 원래는 서버에서 접속 로그로 모바일 | 데스크탑
+        구분해야함)
+      </p>
+      <p>768px이상일 경우 mouse가 hover 되면 resize 버튼 활성화</p>
       <div className="flex w-full h-full">
         {/* <div>Navigation Position</div> */}
         <div className="relative flex-1 w-full">
           <section>{isLoaded && isSignedIn && <SpaceViewer space={space} />}</section>
         </div>
-        <DrawTest open={open} onClose={onClose} />
       </div>
+      <SpaceActionBar />
     </>
   )
 }
