@@ -2,8 +2,8 @@ import { create } from 'zustand'
 import { getSpaceAPI } from '@/api/space'
 import { Space } from '@/models/space'
 
-interface UserState {
-  space: Space
+interface SpaceState {
+  space: Space // ? Partial<Space> | Space  할까요? Space 할까요?
   isFetching: boolean
   isLoaded: boolean
   isFalture: boolean
@@ -13,9 +13,18 @@ interface UserState {
   updateBlock: (section_id: string, block_id: string, options: object) => Promise<boolean>
 }
 
-export const useSpaceStore = create<UserState>((set) => {
+export const useSpaceStore = create<SpaceState>((set) => {
   return {
-    space: {},
+    // ? 이거 속성 다 뺄 수 없나..? Partial<Space> | Space 이렇게 되면 좋게싸..
+    space: {
+      space_id: '',
+      layout: {
+        styles: {}
+      },
+      title: '',
+      description: '',
+      blocks: []
+    },
     isFetching: false,
     isLoaded: false,
     isFalture: false,

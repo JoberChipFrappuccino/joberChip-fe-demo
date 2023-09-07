@@ -1,13 +1,16 @@
-export type Space = {
-  [key: string]: Section
-}
+// export type Spaces = {
+//   [key: string]: Space
+// }
 
-export type Section = {
+export type Space = {
+  space_id: string
   layout: {
     styles: {
       [key: string]: string
     }
   }
+  title: string
+  description: string
   blocks: BlockBase[]
 }
 
