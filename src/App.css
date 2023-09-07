@@ -42,7 +42,32 @@
   user-select: none;
 }
 
-.react-grid-item > .react-resizable-handle {
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ important @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* * 모바일에서 따로 제공해야함! 하지만 데모니까 768px 이하일 경우만 동작으로 수정! * */
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ important @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+@media screen and (max-width: 768px) {
+  .react-grid-item > .react-resizable-handle {
+    position: absolute;
+    width: 2.5rem;
+    height: 2rem;
+    background-color: black;
+    border-radius: 0.5rem;
+    transform: translate(5px, 5px);
+    transition: all 200ms ease;
+  }
+}
+
+.react-gird-resizable-keep {
+  position: absolute;
+  width: 2.5rem;
+  height: 2rem;
+  background-color: black;
+  border-radius: 0.5rem;
+  transform: translate(5px, 5px);
+  transition: all 200ms ease;
+}
+
+.react-grid-item:hover > .react-resizable-handle {
   position: absolute;
   width: 2.5rem;
   height: 2rem;

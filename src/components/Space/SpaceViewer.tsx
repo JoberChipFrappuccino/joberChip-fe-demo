@@ -45,6 +45,12 @@ export const SpaceViewer = ({ space }: Props) => {
           onWidthChange={(width, margin, cols) => {
             setRowHeight((width * 0.7) / cols)
           }}
+          onResizeStart={(layout, oldItem, newItem, placeholder, e, element) => {
+            console.log(element.classList.add('react-gird-resizable-keep'))
+          }}
+          onResizeStop={(layout, oldItem, newItem, placeholder, e, element) => {
+            element.classList.remove('react-gird-resizable-keep')
+          }}
           // onLayoutChange={(layout, layouts) => {
           //   console.log(layout, layouts)
           // }}
