@@ -48,6 +48,14 @@ export const SpaceViewer = ({ space }: Props) => {
           onResizeStop={(layout, oldItem, newItem, placeholder, e, element) => {
             element.classList.remove('react-gird-resizable-keep')
           }}
+          onBreakpointChange={(newBreakpoint, newCols) => {}}
+          onLayoutChange={(layout, layouts) => {
+            const changedLayout = sortLayout(layout)
+            console.log(blocks)
+            if (JSON.stringify(sortLayout(changedLayout)) !== JSON.stringify(state.layouts.lg)) {
+              setState(() => ({ breakpoints: 'lg', layouts: { lg: changedLayout } }))
+            }
+          }}
         >
           {blocks.map((block) => {
             return (
@@ -73,6 +81,15 @@ type BlockItem = {
   MaxW?: number
   isDraggable?: boolean
   isResizable?: boolean
+}
+
+function sortLayout(layout: BlockItem[]): BlockItem[] {
+  return layout.sort((a, b) => {
+    if (a.y === b.y) {
+      return a.x > b.x ? 1 : -1
+    }
+    return a.y > b.y ? 1 : -1
+  })
 }
 
 function getBlockLayout(blocks: Space['blocks'], mode: SpaceMode): BlockItem[] {
