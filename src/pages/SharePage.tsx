@@ -9,6 +9,7 @@ import { Drawer } from '@/components/Drawer'
 import { Button } from 'antd'
 import { useSpaceModeStore } from '@/store/spaceMode'
 import SpaceActionBar from '@/components/Space/SpaceActionBar'
+import TreeTest from '@/components/TreeTest'
 
 type PageSource = {
   title: {
@@ -49,6 +50,9 @@ export default function SharePage() {
         {/* <div>Navigation Position</div> */}
         <div className="relative flex-1 w-full">
           <section>{isLoaded && isSignedIn && <SpaceViewer />}</section>
+        </div>
+        <div>
+          <TreeTest />
         </div>
       </div>
       <SpaceActionBar />
