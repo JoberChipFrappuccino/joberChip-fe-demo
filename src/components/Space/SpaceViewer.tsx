@@ -1,27 +1,24 @@
-import type { Space } from '@/models/space'
+import type { BlockBase, Space } from '@/models/space'
 import type { BlockType } from '@/models/space'
 import SwithBlock from './SwithBlock'
-import { Responsive, WidthProvider } from 'react-grid-layout'
+import { Layout, Responsive, WidthProvider } from 'react-grid-layout'
 import { useEffect, useState } from 'react'
-import Layout from '../Layouts/Layout'
 import { useSpaceModeStore } from '@/store/spaceMode'
+import { useSpaceStore } from '@/store/space'
 
 const ResponsiveGridLayout = WidthProvider(Responsive)
 
-type Props = {
-  space: Space
-}
-export const SpaceViewer = ({ space }: Props) => {
+export const SpaceViewer = () => {
   const [rowHeight, setRowHeight] = useState(100)
   const { mode } = useSpaceModeStore()
-  const [blocks, setBlocks] = useState(space.blocks)
+  const { space } = useSpaceStore()
   const [state, setState] = useState({
     breakpoints: 'lg',
     layouts: { lg: getBlockLayout(space.blocks, mode) } // , md: layout, sm: layout, xs: layout, xxs: layout
   })
 
   useEffect(() => {
-    const nextLayout = getBlockLayout(blocks, mode)
+    const nextLayout = getBlockLayout(space.blocks, mode)
     setState(() => ({ breakpoints: 'lg', layouts: { lg: nextLayout } }))
   }, [mode])
 
@@ -51,13 +48,12 @@ export const SpaceViewer = ({ space }: Props) => {
           onBreakpointChange={(newBreakpoint, newCols) => {}}
           onLayoutChange={(layout, layouts) => {
             const changedLayout = sortLayout(layout)
-            console.log(blocks)
             if (JSON.stringify(sortLayout(changedLayout)) !== JSON.stringify(state.layouts.lg)) {
               setState(() => ({ breakpoints: 'lg', layouts: { lg: changedLayout } }))
             }
           }}
         >
-          {blocks.map((block) => {
+          {space.blocks.map((block) => {
             return (
               <div className="bg-gray-300" key={block.block_id}>
                 <SwithBlock mode={mode} type={block.type} block={block}></SwithBlock>
@@ -83,7 +79,7 @@ type BlockItem = {
   isResizable?: boolean
 }
 
-function sortLayout(layout: BlockItem[]): BlockItem[] {
+function sortLayout(layout: BlockItem[]): Layout[] {
   return layout.sort((a, b) => {
     if (a.y === b.y) {
       return a.x > b.x ? 1 : -1
@@ -92,11 +88,11 @@ function sortLayout(layout: BlockItem[]): BlockItem[] {
   })
 }
 
-function getBlockLayout(blocks: Space['blocks'], mode: SpaceMode): BlockItem[] {
+function getBlockLayout(blocks: Space['blocks'], mode: SpaceMode): Layout[] {
   return blocks.map((block) => {
-    const { block_id, start_col, start_row, end_col, end_row, ...rest } = block
+    const { block_id, ...rest } = block
     return {
-      rest,
+      block_id,
       i: block_id,
       isDraggable: mode === 'view' ? false : true,
       isResizable: mode === 'view' ? false : true,
@@ -105,10 +101,7 @@ function getBlockLayout(blocks: Space['blocks'], mode: SpaceMode): BlockItem[] {
       maxW: 4,
       minH: 1,
       maxH: 2,
-      x: start_col,
-      y: start_row,
-      w: end_col - start_col + 1,
-      h: end_row - start_row + 1
+      ...rest
     }
   })
 }

@@ -1,203 +1,86 @@
 {
   "user1": {
-    "space_id": "space_1",
-    "layout": {
-      "styles": {
-        "background-color": "#828882"
-      }
-    },
-    "title": "space titile입니다",
-    "description": "space description입니다",
+    "title": "foo",
+    "description": "bar",
     "blocks": [
       {
         "block_id": "block_1_1",
-        "start_row": 0,
-        "start_col": 0,
-        "end_row": 0,
-        "end_col": 1,
+        "y": 0,
+        "x": 0,
+        "h": 1,
+        "w": 2,
         "type": "link",
         "url": "http://www.naver.com",
         "text": "네이버로 이동!"
       },
       {
         "block_id": "block_1_2",
-        "start_row": 1,
-        "start_col": 0,
-        "end_row": 1,
-        "end_col": 1,
+        "y": 1,
+        "x": 0,
+        "h": 1,
+        "w": 2,
         "type": "image",
-        "src": "http://localhost:5173/dance.gif",
+        "src": "http://localhost:7282/dance.gif",
         "alt": "춤추는 인간"
       },
       {
         "block_id": "block_1_3",
-        "start_row": 0,
-        "start_col": 2,
-        "end_row": 1,
-        "end_col": 3,
+        "y": 0,
+        "x": 2,
+        "h": 2,
+        "w": 2,
         "type": "image",
-        "src": "http://localhost:5173/dance.gif",
+        "src": "http://localhost:7282/dance.gif",
         "alt": "춤추는 인간2"
       },
       {
         "block_id": "block_1_4",
-        "start_row": 2,
-        "start_col": 0,
-        "end_row": 2,
-        "end_col": 3,
+        "y": 2,
+        "x": 0,
+        "h": 1,
+        "w": 4,
         "type": "space",
         "text": "하위 공유 페이지로 이동하기",
         "url": "http://www.naver.com"
       },
       {
         "block_id": "block_1_5",
-        "start_row": 3,
-        "start_col": 0,
-        "end_row": 3,
-        "end_col": 3,
+        "y": 3,
+        "x": 0,
+        "h": 1,
+        "w": 4,
         "type": "text",
         "text": "텍스트는 텍스트 블럭 테스트라고 적힌 텍스트"
       },
       {
         "block_id": "block_1_6",
-        "start_row": 4,
-        "start_col": 0,
-        "end_row": 5,
-        "end_col": 1,
+        "y": 4,
+        "x": 0,
+        "h": 2,
+        "w": 2,
         "type": "embed",
         "src": "https://www.youtube.com/embed/75kySTFaBQQ??si=w_qvmC6yYxwunlu0&wmode=opaque",
         "caption": "yotube playlist 이거 필요없을 거 같인한데, bento처럼 사용자가 캡션을 원할 경우 추가"
       },
       {
         "block_id": "block_1_7",
-        "start_row": 6,
-        "start_col": 0,
-        "end_row": 7,
-        "end_col": 1,
+        "y": 4,
+        "x": 2,
+        "h": 2,
+        "w": 2,
         "type": "video",
-        "src": "http://localhost:5173/test.mp4",
+        "src": "http://localhost:7282/test.mp4",
         "caption": "쓸모없는 비디오"
       },
       {
         "block_id": "block_1_8",
-        "start_row": 8,
-        "start_col": 1,
-        "end_row": 9,
-        "end_col": 2,
+        "y": 6,
+        "x": 0,
+        "h": 2,
+        "w": 2,
         "type": "googleMap",
         "src": "https://www.google.com/maps/embed/v1/place?key=AIzaSyCnJyiI_VgJmszJ9ceC-AKCVN7ebJe8ovo&q=Eiffel+Tower,Paris+France"
       }
     ]
-  },
-  "user2": {
-    "section_1": {
-      "layout": {
-        "styles": {
-          "background-color": "#828882"
-        }
-      },
-      "blocks": [
-        {
-          "block_id": "block_1",
-          "start_row": 0,
-          "start_col": 0,
-          "end_row": 0,
-          "end_col": 0,
-          "type": "link",
-          "url": "http://www.naver.com",
-          "text": "네이버로 이동하기"
-        },
-        {
-          "block_id": "block_2",
-          "start_row": 1,
-          "start_col": 0,
-          "end_row": 1,
-          "end_col": 0,
-          "type": "image",
-          "src": "http://localhost:5173/dance.gif",
-          "alt": "춤추는 인간"
-        },
-        {
-          "block_id": "block_3",
-          "start_row": 0,
-          "start_col": 1,
-          "end_row": 1,
-          "end_col": 1,
-          "type": "image",
-          "src": "http://localhost:5173/dance.gif",
-          "alt": "춤추는 인간2"
-        },
-        {
-          "block_id": "block_4",
-          "start_row": 2,
-          "start_col": 0,
-          "end_row": 3,
-          "end_col": 1,
-          "type": "space",
-          "text": "하위 공유 페이지로 이동하기"
-        },
-        {
-          "block_id": "block_5",
-          "start_row": 4,
-          "start_col": 0,
-          "end_row": 4,
-          "end_col": 1,
-          "type": "text",
-          "text": "텍스트는 텍스트 블럭 테스트라고 적힌 텍스트"
-        }
-      ]
-    },
-    "section_2": {
-      "blocks": [
-        {
-          "block_id": "block_1",
-          "start_row": 0,
-          "start_col": 0,
-          "end_row": 0,
-          "end_col": 0,
-          "type": "link",
-          "url": "http://www.naver.com",
-          "text": "네이버로 이동하기"
-        },
-        {
-          "block_id": "block_2",
-          "start_row": 1,
-          "start_col": 0,
-          "end_row": 1,
-          "end_col": 0,
-          "type": "image",
-          "src": "http://localhost:5173/dance.gif",
-          "alt": "춤추는 인간"
-        },
-        {
-          "block_id": "block_3",
-          "start_row": 0,
-          "start_col": 1,
-          "end_row": 1,
-          "end_col": 1,
-          "type": "image",
-          "src": "http://localhost:5173/dance.gif",
-          "alt": "춤추는 인간2"
-        },
-        {
-          "block_id": "block_4",
-          "start_row": 2,
-          "start_col": 0,
-          "end_row": 3,
-          "end_col": 1,
-          "type": "space",
-          "text": "하위 공유 페이지로 이동하기"
-        },
-        {
-          "block_id": "block_5",
-          "start_row": 4,
-          "start_col": 0,
-          "end_row": 4,
-          "end_col": 1,
-          "type": "text",
-          "text": "텍스트는 텍스트 블럭 테스트라고 적힌 텍스트"
-        }
-      ]
-    }
   }
 }

@@ -3,12 +3,6 @@
 // }
 
 export type Space = {
-  space_id: string
-  layout: {
-    styles: {
-      [key: string]: string
-    }
-  }
   title: string
   description: string
   blocks: BlockBase[]
@@ -19,10 +13,19 @@ export type BlockType = 'text' | 'image' | 'link' | 'space' | 'embed' | 'video' 
 export type BlockBase = {
   block_id: string
   type: BlockType
-  start_row: number
-  start_col: number
-  end_row: number
-  end_col: number
+  y: number
+  x: number
+  h: number
+  w: number
+  i?: string
+  maxH?: number
+  maxW?: number
+  minH?: number
+  minW?: number
+  isDraggable?: boolean
+  isResizable?: boolean
+  isBounded?: boolean
+  static?: boolean
 }
 
 export type TextBlock = {

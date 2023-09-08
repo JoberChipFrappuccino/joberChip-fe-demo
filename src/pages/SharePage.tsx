@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import useServerSideProps from '@/hooks/serverSideProps'
 import { SEO } from '@/constants'
@@ -6,7 +6,6 @@ import { useUserStore } from '@/store/user'
 import { useSpaceStore } from '@/store/space'
 import { SpaceViewer } from '@/components/Space/SpaceViewer'
 import { Drawer } from '@/components/Drawer'
-import { DrawTest } from '@/components/DrawTest'
 import { Button } from 'antd'
 import { useSpaceModeStore } from '@/store/spaceMode'
 import SpaceActionBar from '@/components/Space/SpaceActionBar'
@@ -20,8 +19,7 @@ type PageSource = {
 export default function SharePage() {
   const pageSource: PageSource = useServerSideProps(SEO)
   const { user, isSignedIn } = useUserStore()
-  const { space, loadSpace, isLoaded } = useSpaceStore()
-  // * 스페이스 모드 상태 관리
+  const { loadSpace, isLoaded } = useSpaceStore()
   const { mode, setSpaceMode } = useSpaceModeStore()
 
   useEffect(() => {
@@ -50,7 +48,7 @@ export default function SharePage() {
       <div className="flex w-full h-full">
         {/* <div>Navigation Position</div> */}
         <div className="relative flex-1 w-full">
-          <section>{isLoaded && isSignedIn && <SpaceViewer space={space} />}</section>
+          <section>{isLoaded && isSignedIn && <SpaceViewer />}</section>
         </div>
       </div>
       <SpaceActionBar />
