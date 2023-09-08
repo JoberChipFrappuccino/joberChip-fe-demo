@@ -1,7 +1,7 @@
 import { BlockType } from '@/models/space'
 import { create } from 'zustand'
 
-type FormType = 'template' | 'page' | 'block' | undefined
+export type FormType = 'template' | 'page' | 'block' | undefined
 interface FormMode {
   formMode: FormType
   BlockType: BlockType

@@ -1,23 +1,16 @@
-import { Drawer as AntdDrawer, Button } from 'antd'
-import { useState } from 'react'
+import { useFormMode } from '@/store/formMode'
+import { Drawer as AntdDrawer } from 'antd'
 
 export function Drawer() {
-  const [open, setOpen] = useState(false)
-
-  const showDrawer = () => {
-    setOpen(true)
-  }
+  const { openDrawer, setOpenDrawer } = useFormMode()
 
   const onClose = () => {
-    setOpen(false)
+    setOpenDrawer(false)
   }
 
   return (
     <>
-      <Button className="prose" type="primary" onClick={showDrawer}>
-        Open Drawer
-      </Button>
-      <AntdDrawer title="Basic AntdDrawer" placement="right" onClose={onClose} open={open}>
+      <AntdDrawer title="Basic AntdDrawer" placement="right" onClose={onClose} open={openDrawer}>
         <p>Some contents...</p>
         <p>Some contents...</p>
         <p>Some contents...</p>
