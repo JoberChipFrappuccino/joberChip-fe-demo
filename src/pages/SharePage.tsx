@@ -4,12 +4,14 @@ import useServerSideProps from '@/hooks/serverSideProps'
 import { SEO } from '@/constants'
 import { useUserStore } from '@/store/user'
 import { useSpaceStore } from '@/store/space'
+import loadable from '@loadable/component'
 import { SpaceViewer } from '@/components/Space/SpaceViewer'
 import { Drawer } from '@/components/Drawer'
 import { Button } from 'antd'
 import { useSpaceModeStore } from '@/store/spaceMode'
 import SpaceActionBar from '@/components/Space/SpaceActionBar'
-import TreeTest from '@/components/TreeTest'
+// ! API가 연동 되지 않아 text dose not matched 에러가 서버에서 발생합니다!
+const TreeTest = loadable(() => import('../components/TreeTest'), { ssr: false })
 
 type PageSource = {
   title: {

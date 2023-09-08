@@ -56,7 +56,7 @@ export const SpaceViewer = () => {
           {space.blocks.map((block) => {
             return (
               <div className="bg-gray-300" key={block.block_id}>
-                <SwithBlock mode={mode} type={block.type} block={block}></SwithBlock>
+                <SwithBlock mode={mode} type={block.type} block={block} />
               </div>
             )
           })}

@@ -157,9 +157,7 @@ export default function TreeTest() {
         onDragEnter={onDragEnter}
         onDrop={onDrop}
         treeData={gData}
-        onClick={(e) => {
-          console.log(e)
-        }}
+        defaultExpandAll
       />
     </div>
   )
