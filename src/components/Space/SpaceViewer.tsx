@@ -1,6 +1,5 @@
-import type { BlockBase, Space } from '@/models/space'
-import type { BlockType } from '@/models/space'
-import SwithBlock from './SwithBlock'
+import type { Space, BlockType } from '@/models/space'
+import { SwithViewerBlock } from '@/components/Space/SwithViewerBlock'
 import { Layout, Responsive, WidthProvider } from 'react-grid-layout'
 import { useEffect, useState } from 'react'
 import { useSpaceModeStore } from '@/store/spaceMode'
@@ -8,7 +7,7 @@ import { useSpaceStore } from '@/store/space'
 
 const ResponsiveGridLayout = WidthProvider(Responsive)
 
-export const SpaceViewer = () => {
+export function SpaceViewer() {
   const [rowHeight, setRowHeight] = useState(100)
   const { mode } = useSpaceModeStore()
   const { space } = useSpaceStore()
@@ -39,10 +38,10 @@ export const SpaceViewer = () => {
           onWidthChange={(width, margin, cols) => {
             setRowHeight((width * 0.7) / cols)
           }}
-          onResizeStart={(layout, oldItem, newItem, placeholder, e, element) => {
+          onResizeStart={(_layout, _oldItem, _newItem, _placeholder, _event, element) => {
             element.classList.add('react-gird-resizable-keep')
           }}
-          onResizeStop={(layout, oldItem, newItem, placeholder, e, element) => {
+          onResizeStop={(_layout, _oldItem, _newItem, _placeholder, _event, element) => {
             element.classList.remove('react-gird-resizable-keep')
           }}
           onBreakpointChange={(newBreakpoint, newCols) => {}}
@@ -55,8 +54,8 @@ export const SpaceViewer = () => {
         >
           {space.blocks.map((block) => {
             return (
-              <div className="bg-gray-300" key={block.block_id}>
-                <SwithBlock mode={mode} type={block.type} block={block} />
+              <div className="bg-gray-300" key={block.blockId}>
+                <SwithViewerBlock mode={mode} type={block.type} block={block} />
               </div>
             )
           })}
@@ -90,7 +89,7 @@ function sortLayout(layout: BlockItem[]): Layout[] {
 
 function getBlockLayout(blocks: Space['blocks'], mode: SpaceMode): Layout[] {
   return blocks.map((block) => {
-    const { block_id, ...rest } = block
+    const { blockId: block_id, ...rest } = block
     return {
       block_id,
       i: block_id,

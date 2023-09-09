@@ -5,7 +5,7 @@ type Props = {
   block: BlockWith<'image'>
   mode: SpaceMode
 }
-export default function ImageBlock({ block, mode }: Props) {
+export function ImageBlock({ block, mode }: Props) {
   return (
     <div className={styles.container}>
       <div className={mode === 'edit' ? 'cover' : ''} />

@@ -100,6 +100,6 @@ export type BlockWith<T> = T extends 'text'
   : T extends 'link'
   ? LinkBlock & BlockBase
   : T extends 'space'
-  ? SpaceBlock & BlockBase
+  ? PageBlock & BlockBase
   : never
 ```

@@ -12,7 +12,9 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        {/* todo : edit 페이지 변경 */}
         <Route path="/" element={<SharePage />}></Route>
+        {/* todo : /root 페이지 변경, 외부 로그인, 공개 페이지 처리시 이쪽 라우터로 이동 */}
         <Route path="/detail" element={<Detail />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>

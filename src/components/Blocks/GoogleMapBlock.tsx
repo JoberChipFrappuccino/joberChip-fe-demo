@@ -6,7 +6,7 @@ type Props = {
   mode?: SpaceMode
 }
 
-export default function GoogleMapBlock({ block, mode = 'view' }: Props) {
+export function GoogleMapBlock({ block, mode = 'view' }: Props) {
   return (
     <div className={styles.container}>
       <div className={mode === 'edit' ? 'cover' : ''} />

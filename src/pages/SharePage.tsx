@@ -6,10 +6,10 @@ import { useUserStore } from '@/store/user'
 import { useSpaceStore } from '@/store/space'
 import loadable from '@loadable/component'
 import { SpaceViewer } from '@/components/Space/SpaceViewer'
-import { Drawer } from '@/components/Drawer'
+import { Drawer } from '@/components/Space/Drawer'
 import { Button } from 'antd'
 import { useSpaceModeStore } from '@/store/spaceMode'
-import SpaceActionBar from '@/components/Space/SpaceActionBar'
+import { SpaceActionBar } from '@/components/Space/SpaceActionBar'
 // ! API가 연동 되지 않아 text dose not matched 에러가 서버에서 발생합니다!
 const TreeTest = loadable(() => import('../components/TreeTest'), { ssr: false })
 
@@ -31,7 +31,7 @@ export default function SharePage() {
   }, [isSignedIn])
 
   return (
-    <>
+    <nav>
       <Helmet>
         <title>{pageSource['title']['/']}</title>
       </Helmet>
@@ -49,15 +49,17 @@ export default function SharePage() {
       </p>
       <p>768px이상일 경우 mouse가 hover 되면 resize 버튼 활성화</p>
       <div className="flex w-full h-full">
-        {/* <div>Navigation Position</div> */}
+        {/* 
+        하림님 여기 왼쪽 GNB 영역이예요.
+        여기다가 더미 데이터를 넣어서 만들어주시면 됩니당.
+        <div>Navigation Position</div> 
+        */}
         <div className="relative flex-1 w-full">
           <section>{isLoaded && isSignedIn && <SpaceViewer />}</section>
         </div>
-        <div>
-          <TreeTest />
-        </div>
+        <TreeTest />
       </div>
       <SpaceActionBar />
-    </>
+    </nav>
   )
 }

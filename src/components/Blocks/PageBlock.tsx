@@ -1,11 +1,11 @@
 import { BlockWith } from '@/models/space'
-import styles from './SpaceBlock.module.scss'
+import styles from './PageBlock.module.scss'
 
 type Props = {
-  block: BlockWith<'space'>
+  block: BlockWith<'page'>
   mode: SpaceMode
 }
-export default function SpaceBlock({ block, mode }: Props) {
+export function PageBlock({ block, mode }: Props) {
   return (
     <div className={styles.container}>
       <div className={mode === 'edit' ? 'cover' : ''}></div>

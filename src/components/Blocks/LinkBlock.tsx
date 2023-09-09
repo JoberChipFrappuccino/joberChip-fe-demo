@@ -5,7 +5,7 @@ type Props = {
   block: BlockWith<'link'>
   mode: SpaceMode
 }
-export default function LinkBlock({ block, mode }: Props) {
+export function LinkBlock({ block, mode }: Props) {
   return (
     <div className={styles.container}>
       <div className={mode === 'edit' ? 'cover' : ''} />

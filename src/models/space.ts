@@ -8,10 +8,10 @@ export type Space = {
   blocks: BlockBase[]
 }
 
-export type BlockType = 'text' | 'image' | 'link' | 'space' | 'embed' | 'video' | 'googleMap'
+export type BlockType = 'text' | 'image' | 'link' | 'page' | 'embed' | 'video' | 'googleMap' | 'template'
 
 export type BlockBase = {
-  block_id: string
+  blockId: string
   type: BlockType
   y: number
   x: number
@@ -39,7 +39,7 @@ export type LinkBlock = {
   url: string
   text: string
 }
-export type SpaceBlock = {
+export type PageBlock = {
   text: string
   url: string
 }
@@ -48,8 +48,6 @@ export type EmbedGoogleMapBlock = {
   caption: string
 }
 
-// * 2023/09/04 추가 (embed, video 테스트)
-// https://www.youtube.com/watch?v=75kySTFaBQQ&t=6607s
 export type EmbedBlock = {
   src: string
   caption: string
@@ -59,12 +57,12 @@ export type VideoBlock = {
   caption: string
 }
 
-// * example 이런 식으로 확장 해야 함
-export type EmbedYoutubeBlock = {} // * youtube
-export type EmbedSpotifyBlock = {} // * spotify
-export type EmbedGithubBlock = {} // * github
-// export type EmbedGoogleMapBlock = {} // * google map
-export type EmbedKakaomapBlock = {} // * kakaomap
+export type TemplateBlock = {
+  templateId: string
+  title: string
+  description: string
+  previewURL: string
+}
 
 /**
  * @description conponents/Blocks/* 에 있는 컴포넌트들의 props 타입을 정의합니다.
@@ -76,12 +74,14 @@ export type BlockWith<T> = T extends 'text'
   ? ImageBlock & BlockBase
   : T extends 'link'
   ? LinkBlock & BlockBase
-  : T extends 'space'
-  ? SpaceBlock & BlockBase
+  : T extends 'page'
+  ? PageBlock & BlockBase
   : T extends 'embed'
   ? EmbedBlock & BlockBase
   : T extends 'video'
   ? VideoBlock & BlockBase
   : T extends 'googleMap'
   ? EmbedGoogleMapBlock & BlockBase
+  : T extends 'template'
+  ? TemplateBlock & BlockBase
   : never

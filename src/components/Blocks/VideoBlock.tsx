@@ -5,7 +5,7 @@ type Props = {
   block: BlockWith<'video'>
   mode: SpaceMode
 }
-export default function VideoBlock({ block, mode }: Props) {
+export function VideoBlock({ block, mode }: Props) {
   return (
     <div className={styles.container}>
       <div className={mode === 'edit' ? 'cover' : ''} />

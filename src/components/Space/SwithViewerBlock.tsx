@@ -1,11 +1,11 @@
 import type { BlockBase, BlockType, BlockWith } from '@/models/space'
-import TextBlock from '@/components/Blocks/TextBlock'
-import LinkBlock from '@/components/Blocks/LinkBlock'
-import SpaceBlock from '@/components/Blocks/SpaceBlock'
-import ImageBlock from '@/components/Blocks/ImageBlock'
+import { TextBlock } from '@/components/Blocks/TextBlock'
+import { LinkBlock } from '@/components/Blocks/LinkBlock'
+import { PageBlock } from '@/components/Blocks/PageBlock'
+import { ImageBlock } from '@/components/Blocks/ImageBlock'
 import { EmbedBlock } from '@/components/Blocks/EmbedBlock'
-import VideoBlock from '@/components/Blocks/VideoBlock'
-import GoogleMapBlock from '@/components/Blocks/GoogleMapBlock'
+import { VideoBlock } from '@/components/Blocks/VideoBlock'
+import { GoogleMapBlock } from '@/components/Blocks/GoogleMapBlock'
 
 type Props = {
   type: BlockType
@@ -13,8 +13,8 @@ type Props = {
   mode: SpaceMode
 }
 
-export default function SwithBlock({ type, block, mode }: Props) {
-  let blockComponent = <>지정된 블록이 없습니다!</>
+export function SwithViewerBlock({ type, block, mode }: Props) {
+  let blockComponent = <></>
   switch (type) {
     case 'text':
       blockComponent = <TextBlock mode={mode} block={block as BlockWith<'text'>} />
@@ -25,8 +25,8 @@ export default function SwithBlock({ type, block, mode }: Props) {
     case 'link':
       blockComponent = <LinkBlock mode={mode} block={block as BlockWith<'link'>} />
       break
-    case 'space':
-      blockComponent = <SpaceBlock mode={mode} block={block as BlockWith<'space'>} />
+    case 'page':
+      blockComponent = <PageBlock mode={mode} block={block as BlockWith<'page'>} />
       break
     case 'embed':
       blockComponent = <EmbedBlock mode={mode} block={block as BlockWith<'embed'>} />

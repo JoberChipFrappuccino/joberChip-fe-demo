@@ -5,7 +5,7 @@ type Props = {
   block: BlockWith<'text'>
   mode: SpaceMode
 }
-export default function TextBlock({ block, mode }: Props) {
+export function TextBlock({ block, mode }: Props) {
   return (
     <div className={styles.container}>
       <div className={mode === 'edit' ? 'cover' : ''}></div>
