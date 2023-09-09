@@ -35,7 +35,7 @@ export function SpaceViewer() {
           rowHeight={rowHeight}
           width={1000}
           margin={[30, 30]}
-          onWidthChange={(width, margin, cols) => {
+          onWidthChange={(width, _margin, cols) => {
             setRowHeight((width * 0.7) / cols)
           }}
           onResizeStart={(_layout, _oldItem, _newItem, _placeholder, _event, element) => {
@@ -44,8 +44,7 @@ export function SpaceViewer() {
           onResizeStop={(_layout, _oldItem, _newItem, _placeholder, _event, element) => {
             element.classList.remove('react-gird-resizable-keep')
           }}
-          onBreakpointChange={(newBreakpoint, newCols) => {}}
-          onLayoutChange={(layout, layouts) => {
+          onLayoutChange={(layout, _layouts) => {
             const changedLayout = sortLayout(layout)
             if (JSON.stringify(sortLayout(changedLayout)) !== JSON.stringify(state.layouts.lg)) {
               setState(() => ({ breakpoints: 'lg', layouts: { lg: changedLayout } }))

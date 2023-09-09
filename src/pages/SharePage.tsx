@@ -41,7 +41,7 @@ export default function SharePage() {
       <Button className="prose" onClick={() => setSpaceMode(mode === 'view' ? 'edit' : 'view')}>
         {mode === 'view' ? '수정 하기' : '공유 화면 보기'}
       </Button>
-      <aside>{isLoaded && isSignedIn && <Drawer />}</aside>
+      {/* <aside>{isLoaded && isSignedIn && <Drawer />}</aside> */}
       <p>위 버튼들 눌러서 테스트해주세요.</p>
       <p>
         768px 이하에서는 resize 버튼 모두 활성화 (모바일이라고 가정, 원래는 서버에서 접속 로그로 모바일 | 데스크탑
@@ -57,7 +57,7 @@ export default function SharePage() {
         <div className="relative flex-1 w-full">
           <section>{isLoaded && isSignedIn && <SpaceViewer />}</section>
         </div>
-        <TreeTest />
+        {/* <TreeTest /> */}
       </div>
       <SpaceActionBar />
     </nav>

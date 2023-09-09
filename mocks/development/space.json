@@ -4,7 +4,7 @@
     "description": "bar",
     "blocks": [
       {
-        "block_id": "block_1_1",
+        "blockId": "block_1_1",
         "y": 0,
         "x": 0,
         "h": 1,
@@ -14,7 +14,7 @@
         "text": "네이버로 이동!"
       },
       {
-        "block_id": "block_1_2",
+        "blockId": "block_1_2",
         "y": 1,
         "x": 0,
         "h": 1,
@@ -24,7 +24,7 @@
         "alt": "춤추는 인간"
       },
       {
-        "block_id": "block_1_3",
+        "blockId": "block_1_3",
         "y": 0,
         "x": 2,
         "h": 2,
@@ -34,7 +34,7 @@
         "alt": "춤추는 인간2"
       },
       {
-        "block_id": "block_1_4",
+        "blockId": "block_1_4",
         "y": 2,
         "x": 0,
         "h": 1,
@@ -44,7 +44,7 @@
         "url": "http://www.naver.com"
       },
       {
-        "block_id": "block_1_5",
+        "blockId": "block_1_5",
         "y": 3,
         "x": 0,
         "h": 1,
@@ -53,7 +53,7 @@
         "text": "텍스트는 텍스트 블럭 테스트라고 적힌 텍스트"
       },
       {
-        "block_id": "block_1_6",
+        "blockId": "block_1_6",
         "y": 4,
         "x": 0,
         "h": 2,
@@ -63,7 +63,7 @@
         "caption": "yotube playlist 이거 필요없을 거 같인한데, bento처럼 사용자가 캡션을 원할 경우 추가"
       },
       {
-        "block_id": "block_1_7",
+        "blockId": "block_1_7",
         "y": 4,
         "x": 2,
         "h": 2,
@@ -73,7 +73,7 @@
         "caption": "쓸모없는 비디오"
       },
       {
-        "block_id": "block_1_8",
+        "blockId": "block_1_8",
         "y": 6,
         "x": 0,
         "h": 2,
